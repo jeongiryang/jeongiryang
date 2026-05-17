@@ -8,13 +8,13 @@ export interface ReadmeRenderInput {
   projects: ProfileProject[];
 }
 
-const PREVIEW_WIDTH = 180;
+const PREVIEW_WIDTH = 280;
 
 export async function renderReadme(input: ReadmeRenderInput): Promise<string> {
   const template = await readFile(input.templatePath, "utf8");
   const completedProjects = sortedProjects(input.projects, "completed");
   const inProgressProjects = sortedProjects(input.projects, "in_progress");
-  const courseworkProjects = sortedProjects(input.projects, "coursework");
+  const assignmentProjects = sortedProjects(input.projects, "assignment");
 
   const replacements: Record<string, string> = {
     GENERATED_COMMENT: renderHiddenGeneratedComment(input.lastUpdated),
@@ -22,8 +22,7 @@ export async function renderReadme(input: ReadmeRenderInput): Promise<string> {
     ABOUT_ME: renderAboutMe(input.profile),
     COMPLETED_PROJECTS: renderCompletedProjectsTable(completedProjects),
     IN_PROGRESS_PROJECTS: renderInProgressProjectsTable(inProgressProjects),
-    COURSEWORK_PROJECTS: renderCourseworkProjectsTable(courseworkProjects),
-    FOOTER: renderFooter()
+    COMPLETED_ASSIGNMENTS: renderCompletedAssignmentsTable(assignmentProjects)
   };
 
   return Object.entries(replacements).reduce(
@@ -61,6 +60,9 @@ function renderAboutMe(profile: ProfileConfig): string {
   return [
     "## About Me",
     "",
+    "> [!IMPORTANT]",
+    `> ${profile.importantNote}`,
+    "",
     "> [!NOTE]",
     `> ${profile.aboutNote}`,
     "",
@@ -74,13 +76,12 @@ function renderCompletedProjectsTable(projects: ProfileProject[]): string {
   }
 
   return [
-    "| 프로젝트 | 요약 | 결과 | 미리보기 |",
-    "|---|---|---|---|",
+    "| 프로젝트 | 요약 | 미리보기 |",
+    "|---|---|---|",
     ...projects.map((project) =>
       renderRow([
         renderProjectName(project),
         project.description,
-        project.result,
         renderPreviewImage(project)
       ])
     )
@@ -93,20 +94,18 @@ function renderInProgressProjectsTable(projects: ProfileProject[]): string {
   }
 
   return [
-    "| 프로젝트 | 요약 | 진행 내용 | 미리보기 |",
-    "|---|---|---|---|",
+    "| 프로젝트 | 요약 |",
+    "|---|---|",
     ...projects.map((project) =>
       renderRow([
         renderProjectName(project),
-        project.description,
-        project.result,
-        renderPreviewImage(project)
+        project.description
       ])
     )
   ].join("\n");
 }
 
-function renderCourseworkProjectsTable(projects: ProfileProject[]): string {
+function renderCompletedAssignmentsTable(projects: ProfileProject[]): string {
   if (projects.length === 0) {
     return "표시할 과제가 없습니다.";
   }
@@ -121,16 +120,6 @@ function renderCourseworkProjectsTable(projects: ProfileProject[]): string {
         project.tech.join(", ")
       ])
     )
-  ].join("\n");
-}
-
-function renderFooter(): string {
-  return [
-    '<div align="center">',
-    "",
-    "**방문해주셔서 감사합니다.**",
-    "",
-    "</div>"
   ].join("\n");
 }
 
