@@ -81,7 +81,7 @@ function renderCard(project: FeaturedProject, index: number, startY: number, det
   const y = startY + row * (CARD_HEIGHT + GAP_Y);
   const statusLabel = project.status === "completed" ? "완료" : "진행 중";
   const accentClass = project.status === "completed" ? "accent-completed" : "accent-progress";
-  const detail = project.status === "completed" ? project.result : project.currentFocus;
+  const detail = project.status === "completed" ? project.result : project.description;
   const descriptionLines = wrapText(project.description, 48, 1);
   const detailLines = wrapText(detail, 36, 1);
   const stackText = project.stack.join(" / ");
