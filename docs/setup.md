@@ -13,97 +13,59 @@ npm install
 
 ## 실행 명령
 
-TypeScript 컴파일:
-
 ```bash
 npm run build
-```
-
-README와 SVG 카드 생성:
-
-```bash
 npm run generate
-```
-
-빌드와 생성을 한 번에 검증:
-
-```bash
 npm run check
 ```
 
-## 프로필 문구 수정 위치
+- `build`: TypeScript 컴파일
+- `generate`: `README.md`와 `assets/generated/project-cards.svg` 생성
+- `check`: build와 generate를 순차 실행
+
+## README 문구 수정 위치
 
 대부분의 내용은 `src/projects.ts`에서 수정합니다.
 
 - 이름: `profileConfig.name`
-- GitHub username: `profileConfig.username`
 - 학년/역할: `profileConfig.role`
-- 상단 소개 문구: `profileConfig.direction`
-- 소개 문장: `profileConfig.introduction`
 - 관심 분야: `profileConfig.interests`
+- 기술 스택: `profileConfig.techStackGroups`
+- AI-assisted workflow: `profileConfig.workflow`
 
-수정 후에는 반드시 다음 명령을 실행합니다.
-
-```bash
-npm run check
-```
+현재 README에는 `현재 학습 방향`과 `대표 프로젝트` 섹션이 없습니다. 중복을 줄이고
+첫 화면에서 개발 중/완료 프로젝트가 바로 보이도록 구성했습니다.
 
 ## 프로젝트 추가/수정 방법
 
-`src/projects.ts`의 `featuredProjects` 배열에 프로젝트를 추가하거나 수정합니다.
-
-주요 필드:
+`featuredProjects` 배열의 항목을 수정합니다.
 
 - `name`: README에 표시할 프로젝트명
-- `description`: 한국어 핵심 설명
-- `stack`: 기술 스택. `TypeScript`, `React`, `Node.js`처럼 기술명은 영어 그대로 유지합니다.
+- `repo`: repository slug
+- `description`: table에 들어갈 한 줄 설명
+- `stack`: 핵심 기술 3~4개
 - `status`: `in_progress` 또는 `completed`
-- `statusLabel`: `진행 중` 또는 `완료`
-- `categoryLabel`: `포트폴리오`, `게임`, `자동화`, `수업 프로젝트` 등 한국어 분류
-- `currentFocus`: 진행 중 프로젝트의 현재 집중 작업
+- `priority`: table 정렬 순서
+- `url`: GitHub URL
+- `currentFocus`: 개발 중 프로젝트의 현재 작업
 - `result`: 완료 프로젝트의 구현 결과
-- `url`: GitHub 저장소 링크
-- `priority`: 대표 프로젝트 섹션의 정렬 기준
+- `isPublic`, `displayUrl`: 링크를 확실하게 공개해도 되는 경우에만 `true`
 
-## 상태별 표시 방식
+링크가 확실하지 않은 프로젝트는 `displayUrl: false`로 두면 README에서 일반 텍스트로 표시됩니다.
 
-- `status: "in_progress"`인 프로젝트는 `현재 작업 중인 프로젝트` 섹션에 표시됩니다.
-- `status: "completed"`인 프로젝트는 `완료한 프로젝트` 섹션에 표시됩니다.
-- `대표 프로젝트` 섹션은 `priority` 기준으로 상위 프로젝트를 카드형 table로 보여줍니다.
-- SVG 카드는 `Now Building · 진행 중`과 `Completed · 완료` 영역으로 나뉩니다.
+## SVG 카드
 
-## 기술 스택과 학습 방향
-
-- 기술 스택 그룹은 `profileConfig.techStackGroups`에서 관리합니다.
-- 학습 방향과 한국어 설명은 `profileConfig.learningFocus`에서 관리합니다.
-- 기술명, repository slug, GitHub URL은 영어 원문을 유지하는 것을 권장합니다.
-
-## SVG 카드 생성 방식
-
-`src/svg/generateProjectCards.ts`는 외부 이미지나 badge 서비스 없이 순수 SVG를 생성합니다.
-카드에는 프로젝트명, 상태, 분류, 설명, 현재 집중 작업 또는 구현 결과, 기술 스택이 들어갑니다.
-README에서는 `assets/generated/project-cards.svg`를 `width="100%"`로 삽입합니다.
-
-## 환경변수
-
-- `GITHUB_USERNAME`: 선택 사항. 기본값은 `jeongiryang`입니다.
-- `GITHUB_TOKEN`: 선택 사항. GitHub Actions에서는 기본 `${{ github.token }}`을 사용합니다.
-
-토큰이나 secret은 생성 파일에 쓰지 않습니다. GitHub API 호출에 실패하면 한국어 fallback 활동 요약으로 README를 생성합니다.
+`assets/generated/project-cards.svg`는 계속 생성되지만 README 메인 흐름에는 직접 노출하지 않습니다.
+`README.template.md`의 `<details>` 접기 섹션에서 보조 자료로만 표시됩니다.
 
 ## GitHub Actions
 
-`.github/workflows/update-profile.yml`은 다음 경우 실행됩니다.
-
-- 수동 실행: `workflow_dispatch`
-- 자동 실행: 하루 1회 `schedule`
-
-워크플로우는 `npm run check`를 실행하고, 생성 결과가 바뀐 경우에만
-`README.md`와 `assets/generated/project-cards.svg`를 커밋합니다.
+`.github/workflows/update-profile.yml`은 수동 실행과 하루 1회 schedule 실행을 지원합니다.
+변경사항이 있을 때만 generated README와 SVG를 커밋합니다.
 
 ## 문제 해결
 
-- README가 예상과 다르면 `npm run generate`를 다시 실행하고 `git diff`를 확인합니다.
-- GitHub 활동이 fallback으로 표시되면 API 토큰, rate limit, 네트워크 상태를 확인합니다.
-- SVG 텍스트가 길면 `description`, `currentFocus`, `result` 문장을 짧게 정리합니다.
-- Actions push가 실패하면 repository workflow permission의 read/write 권한을 확인합니다.
+- README가 예상보다 길어지면 `description`, `currentFocus`, `result`를 한 줄로 줄입니다.
+- Markdown table이 깨지면 프로젝트 문구에 줄바꿈이나 `|` 문자가 들어갔는지 확인합니다.
+- SVG 텍스트가 넘치면 프로젝트명 또는 설명을 더 짧게 조정합니다.
+- 생성 결과 확인 후 `npm run check`와 `git diff --check`를 실행합니다.

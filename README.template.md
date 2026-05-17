@@ -1,46 +1,28 @@
 <!--
-이 README는 npm run generate로 생성됩니다.
+이 README는 npm run generate로 자동 생성됩니다.
 README.template.md와 src/projects.ts를 수정한 뒤 README.md를 다시 생성합니다.
 -->
 
 {{HERO}}
 
-{{INTRO}}
-
-## 현재 작업 중인 프로젝트
+## 개발 중인 프로젝트
 
 {{IN_PROGRESS_PROJECTS}}
 
-## 완료한 프로젝트
+## 개발 완료 프로젝트
 
 {{COMPLETED_PROJECTS}}
-
-## 대표 프로젝트
-
-{{FEATURED_PROJECTS}}
 
 ## 기술 스택
 
 {{TECH_STACK}}
 
-## 현재 학습 방향
+## AI-assisted Development Workflow
 
-{{LEARNING_FOCUS}}
+{{AI_ASSISTED_WORKFLOW}}
 
-## 개발 워크플로우
+## 자동 갱신 정보
 
-{{WORKFLOW}}
+{{AUTO_GENERATED_INFO}}
 
-## 자동 생성 대시보드
-
-### 프로젝트 카드
-
-{{PROJECT_CARDS_SVG}}
-
-### 최근 활동
-
-{{RECENT_ACTIVITY}}
-
-### 마지막 갱신
-
-{{LAST_UPDATED}}
+{{PROJECT_CARDS_DETAILS}}
