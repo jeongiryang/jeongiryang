@@ -24,7 +24,7 @@ README는 직접 수정하지 않고 TypeScript generator로 생성합니다.
 - `in_progress`: `개발 중`
 - `assignment`: `완료한 과제`
 
-`개발 완료` table만 미리보기 이미지를 사용합니다. `개발 중` table은 `프로젝트 / 요약`,
+`개발 완료` table만 미리보기 이미지를 사용합니다. `개발 중` table은 `프로젝트 / 요약 / 기술`,
 `완료한 과제` table은 `과제 / 요약 / 기술`만 표시합니다.
 
 ## 주요 파일
@@ -42,10 +42,10 @@ README는 직접 수정하지 않고 TypeScript generator로 생성합니다.
 `previewImage`가 있는 개발 완료 프로젝트는 README table에 다음 형태로 렌더링됩니다.
 
 ```html
-<img src="assets/previews/todo-app-mini-project.png" width="280" alt="Todo 리스트 미니 프로젝트 미리보기" />
+<img src="assets/previews/todo-app-mini-project.png" width="420" alt="Todo 리스트 미니 프로젝트 미리보기" />
 ```
 
-이미지 width는 `280`으로 고정합니다. `previewImage`가 비어 있으면 `-`로 표시합니다.
+이미지 width는 `420`으로 고정합니다. `previewImage`가 비어 있으면 `-`로 표시합니다.
 외부 이미지 호스팅은 사용하지 않습니다.
 
 ## 링크 정책

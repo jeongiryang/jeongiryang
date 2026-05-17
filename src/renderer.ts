@@ -8,7 +8,7 @@ export interface ReadmeRenderInput {
   projects: ProfileProject[];
 }
 
-const PREVIEW_WIDTH = 280;
+const PREVIEW_WIDTH = 420;
 
 export async function renderReadme(input: ReadmeRenderInput): Promise<string> {
   const template = await readFile(input.templatePath, "utf8");
@@ -76,12 +76,13 @@ function renderCompletedProjectsTable(projects: ProfileProject[]): string {
   }
 
   return [
-    "| 프로젝트 | 요약 | 미리보기 |",
-    "|---|---|---|",
+    "| 프로젝트 | 요약 | 기술 | 미리보기 |",
+    "|---|---|---|---|",
     ...projects.map((project) =>
       renderRow([
         renderProjectName(project),
         project.description,
+        renderTech(project),
         renderPreviewImage(project)
       ])
     )
@@ -94,12 +95,13 @@ function renderInProgressProjectsTable(projects: ProfileProject[]): string {
   }
 
   return [
-    "| 프로젝트 | 요약 |",
-    "|---|---|",
+    "| 프로젝트 | 요약 | 기술 |",
+    "|---|---|---|",
     ...projects.map((project) =>
       renderRow([
         renderProjectName(project),
-        project.description
+        project.description,
+        renderTech(project)
       ])
     )
   ].join("\n");
@@ -117,10 +119,14 @@ function renderCompletedAssignmentsTable(projects: ProfileProject[]): string {
       renderRow([
         renderProjectName(project),
         project.description,
-        project.tech.join(", ")
+        renderTech(project)
       ])
     )
   ].join("\n");
+}
+
+function renderTech(project: ProfileProject): string {
+  return project.tech.join(", ");
 }
 
 function renderPreviewImage(project: ProfileProject): string {

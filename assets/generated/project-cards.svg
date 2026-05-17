@@ -33,7 +33,7 @@
     <text class="description" x="24" y="87">Node.js와 PostgreSQL 기반 CWNU Community 게시판</text>
     <text class="label" x="24" y="111">구현 결과</text>
     <text class="detail" x="90" y="111">회원가입, 로그인, 게시글, 댓글, 좋아요,</text>
-    <text class="stack" x="24" y="126">Node.js / PostgreSQL / Express</text>
+    <text class="stack" x="24" y="126">JavaScript / Node.js / PostgreSQL</text>
   </g>
   <g transform="translate(494 112)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
@@ -44,7 +44,7 @@
     <text class="description" x="24" y="87">AI-assisted workflow로 제작한 Todo 리스트 미니...</text>
     <text class="label" x="24" y="111">구현 결과</text>
     <text class="detail" x="90" y="111">Todo CRUD, 배포, 문서화</text>
-    <text class="stack" x="24" y="126">JavaScript / Todo App</text>
+    <text class="stack" x="24" y="126">JavaScript / Vercel</text>
   </g>
 
   <text class="section" x="40" y="298">Now Building · 개발 중</text>
@@ -58,7 +58,7 @@
     <text class="description" x="24" y="87">창원대학교 생활 편의 기능을 모은 캠퍼스 허브</text>
     <text class="label" x="24" y="111">진행 내용</text>
     <text class="detail" x="90" y="111">링크 레지스트리, 홈 대시보드, 즐겨찾기</text>
-    <text class="stack" x="24" y="126">TypeScript / React / Node.js</text>
+    <text class="stack" x="24" y="126">JavaScript / React / Vite</text>
   </g>
   <g transform="translate(494 310)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
@@ -91,6 +91,6 @@
     <text class="description" x="24" y="87">사회적 약자를 위한 경상남도 맞춤형 관광 경로 안내...</text>
     <text class="label" x="24" y="111">진행 내용</text>
     <text class="detail" x="90" y="111">관광 데이터 활용, 경로 안내, 우회로 설계</text>
-    <text class="stack" x="24" y="126">Data / Route Planning</text>
+    <text class="stack" x="24" y="126">Web/App / Tourism Data</text>
   </g>
 </svg>
