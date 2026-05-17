@@ -1,4 +1,4 @@
-export type ProjectSection = "completed" | "in_progress" | "coursework";
+export type ProjectSection = "completed" | "in_progress" | "assignment";
 
 export interface ProfileProject {
   name: string;
@@ -20,6 +20,7 @@ export interface ProfileConfig {
   name: string;
   username: string;
   role: string;
+  importantNote: string;
   aboutNote: string;
   aboutBullets: string[];
 }
@@ -28,12 +29,13 @@ export const profileConfig: ProfileConfig = {
   name: "정이량",
   username: "jeongiryang",
   role: "컴퓨터공학과 3학년 1학기 재학 중",
+  importantNote: "GitHub를 단순 저장소가 아니라 프로젝트 관리와 성장 기록의 중심 도구로 활용하려고 합니다.",
   aboutNote:
-    "AI를 단순 코드 생성 도구가 아니라 요구사항 정리, 구현, 검증, 문서화를 빠르게 반복하는 개발 파트너로 활용하는 방식을 연습하고 있습니다.",
+    "Issue, branch, PR, merge 흐름을 익히고, Codex와 함께 구현·검증·문서화를 반복하며 Git 관리 역량을 쌓고 있습니다.",
   aboutBullets: [
-    "프로젝트를 작은 기능 단위로 나누어 구현합니다.",
-    "GitHub Issue, branch, PR 흐름으로 작업을 관리합니다.",
-    "README, setup 문서, AI 작업 로그로 과정을 기록합니다."
+    "작업 단위를 작게 나누고 변경 이유를 기록합니다.",
+    "GitHub 기반 협업 흐름과 버전 관리를 꾸준히 연습합니다.",
+    "README, setup 문서, AI 작업 로그로 개발 과정을 남깁니다."
   ]
 };
 
@@ -63,8 +65,8 @@ export const profileProjects: ProfileProject[] = [
     priority: 2,
     isPublic: true,
     url: "https://github.com/jeongiryang/todo-app-mini-project-20222017",
-    previewImage: "",
-    previewAlt: "",
+    previewImage: "assets/previews/todo-app-mini-project.png",
+    previewAlt: "Todo 리스트 미니 프로젝트 미리보기",
     isPrivate: false,
     isArchived: true
   },
@@ -78,8 +80,8 @@ export const profileProjects: ProfileProject[] = [
     priority: 1,
     isPublic: true,
     url: "https://github.com/jeongiryang/cwnu-campus-hub",
-    previewImage: "assets/previews/cwnu-campus-hub.png",
-    previewAlt: "CWNU Campus Hub 미리보기",
+    previewImage: "",
+    previewAlt: "",
     isPrivate: false,
     isArchived: false
   },
@@ -134,7 +136,7 @@ export const profileProjects: ProfileProject[] = [
     description: "MariaDB 환경에서 요구사항에 맞는 SQL 쿼리 작성",
     result: "",
     tech: ["SQL", "MariaDB"],
-    section: "coursework",
+    section: "assignment",
     priority: 1,
     isPublic: true,
     url: "https://github.com/jeongiryang/DatabaseLanguage_SQL_Assignment",
@@ -149,7 +151,7 @@ export const profileProjects: ProfileProject[] = [
     description: "애니멀 알고리즘 도구 사용 및 분석",
     result: "",
     tech: ["Python"],
-    section: "coursework",
+    section: "assignment",
     priority: 2,
     isPublic: true,
     url: "https://github.com/jeongiryang/Algorithm_animal-animation_tool",
@@ -164,7 +166,7 @@ export const profileProjects: ProfileProject[] = [
     description: "TCP와 UDP 프로토콜 차이 실험 및 분석",
     result: "",
     tech: ["C", "Network"],
-    section: "coursework",
+    section: "assignment",
     priority: 3,
     isPublic: true,
     url: "https://github.com/jeongiryang/Network-Programming_TCP_and_UDP-Analysis",
@@ -179,7 +181,7 @@ export const profileProjects: ProfileProject[] = [
     description: "Python 기반 간단한 텍스트 게임 구현",
     result: "",
     tech: ["Python"],
-    section: "coursework",
+    section: "assignment",
     priority: 4,
     isPublic: true,
     url: "https://github.com/jeongiryang/OpenSource_1_team-project",
@@ -194,7 +196,7 @@ export const profileProjects: ProfileProject[] = [
     description: "너구리 게임 코드 분석, 오류 수정, 완성",
     result: "",
     tech: ["C"],
-    section: "coursework",
+    section: "assignment",
     priority: 5,
     isPublic: true,
     url: "https://github.com/jeongiryang/Advanced_Data_Structures_Team6",
@@ -209,7 +211,7 @@ export const profileProjects: ProfileProject[] = [
     description: "To-Do List와 중고나라 마켓 기능 구현",
     result: "",
     tech: ["JavaScript"],
-    section: "coursework",
+    section: "assignment",
     priority: 6,
     isPublic: true,
     url: "https://github.com/jeongiryang/WebProgramming_team-project",
@@ -224,7 +226,7 @@ export const profileProjects: ProfileProject[] = [
     description: "OpenGL을 사용해 3D 집 외부 구현",
     result: "",
     tech: ["C++", "OpenGL"],
-    section: "coursework",
+    section: "assignment",
     priority: 7,
     isPublic: true,
     url: "https://github.com/jeongiryang/Computer-Graphics_project_Team1",
