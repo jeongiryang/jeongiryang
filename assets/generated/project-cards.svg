@@ -32,7 +32,7 @@
     <text class="project" x="24" y="64">cwnu-campus-hub</text>
     <text class="description" x="24" y="87">창원대학교 생활 편의 기능을 모은 캠퍼스 허브</text>
     <text class="label" x="24" y="111">현재 작업</text>
-    <text class="detail" x="90" y="111">링크 레지스트리, 홈 대시보드, 즐겨찾기</text>
+    <text class="detail" x="90" y="111">창원대학교 생활 편의 기능을 모은 캠퍼스</text>
     <text class="stack" x="24" y="126">TypeScript / React / Node.js</text>
   </g>
   <g transform="translate(494 112)">
@@ -43,8 +43,8 @@
     <text class="project" x="24" y="64">3AM Computer Science: Mystery Room</text>
     <text class="description" x="24" y="87">컴퓨터공학 개념을 퍼즐로 녹인 Godot 게임</text>
     <text class="label" x="24" y="111">현재 작업</text>
-    <text class="detail" x="90" y="111">룸 구성, 상호작용, 비주얼 개선</text>
-    <text class="stack" x="24" y="126">Godot / GDScript / Game Design</text>
+    <text class="detail" x="90" y="111">컴퓨터공학 개념을 퍼즐로 녹인 Godot 게임</text>
+    <text class="stack" x="24" y="126">Godot / GDScript</text>
   </g>
   <g transform="translate(40 264)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
@@ -52,10 +52,10 @@
     <rect class="accent-progress" x="24" y="18" width="73" height="22" rx="11"/>
     <text class="pill-text" x="36" y="33">진행 중</text>
     <text class="project" x="24" y="64">GitHub Profile Dashboard</text>
-    <text class="description" x="24" y="87">프로필 README 자동 생성 대시보드</text>
+    <text class="description" x="24" y="87">프로필 README 자동 생성 프로젝트</text>
     <text class="label" x="24" y="111">현재 작업</text>
-    <text class="detail" x="90" y="111">프로젝트 상태 표시, 자동 갱신</text>
-    <text class="stack" x="24" y="126">TypeScript / Node.js / GitHub Actions</text>
+    <text class="detail" x="90" y="111">프로필 README 자동 생성 프로젝트</text>
+    <text class="stack" x="24" y="126">TypeScript / GitHub Actions</text>
   </g>
 
   <text class="section" x="40" y="450">Completed · 완료</text>
@@ -80,6 +80,6 @@
     <text class="description" x="24" y="87">개인화 학습 관리 앱 팀 프로젝트</text>
     <text class="label" x="24" y="111">구현 결과</text>
     <text class="detail" x="90" y="111">요구사항 분석, 설계, 구현 구조, 문서화</text>
-    <text class="stack" x="24" y="126">React Native / Expo / Software Engineering</text>
+    <text class="stack" x="24" y="126">React Native / Expo</text>
   </g>
 </svg>

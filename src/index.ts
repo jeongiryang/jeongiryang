@@ -8,7 +8,6 @@ const ROOT_DIR = resolve(__dirname, "..");
 const TEMPLATE_PATH = resolve(ROOT_DIR, "README.template.md");
 const README_PATH = resolve(ROOT_DIR, "README.md");
 const PROJECT_CARDS_SVG_PATH = resolve(ROOT_DIR, "assets/generated/project-cards.svg");
-const PROJECT_CARDS_SVG_README_PATH = "assets/generated/project-cards.svg";
 
 async function main(): Promise<void> {
   const lastUpdated = formatKstTimestamp(new Date());
@@ -19,8 +18,7 @@ async function main(): Promise<void> {
     templatePath: TEMPLATE_PATH,
     lastUpdated,
     profile: profileConfig,
-    projects: featuredProjects,
-    projectCardsSvgPath: PROJECT_CARDS_SVG_README_PATH
+    projects: featuredProjects
   });
 
   await writeFile(README_PATH, `${readme.trimEnd()}\n`, "utf8");
