@@ -1,7 +1,7 @@
 <!--
 이 README는 npm run generate로 자동 생성됩니다.
 README.template.md와 src/projects.ts를 수정한 뒤 README.md를 다시 생성합니다.
-마지막 갱신: 2026-05-17 23:31 KST
+마지막 갱신: 2026-05-18 00:17 KST
 -->
 
 <div align="center">
@@ -29,21 +29,53 @@ Codex와 GitHub 기반 워크플로우로<br />
 
 ## 개발 완료
 
-### [DatabaseLanguage_NodeJS_CWNU-Community](https://github.com/jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community)
+### 1. [DatabaseLanguage_NodeJS_CWNU-Community](https://github.com/jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community)
+
+#### [사이트 바로가기 ↗](https://cwnu-community-cehv6vpud-eryang-cmds-projects.vercel.app/)
 
 | 요약 | 기술 |
 |---|---|
-| Node.js와 PostgreSQL 기반 CWNU Community 게시판 | JavaScript, Node.js, PostgreSQL |
+| Node.js와 PostgreSQL 기반 CWNU Community 게시판 | JavaScript, Node.js, PostgreSQL, Vercel |
 
-<img src="assets/previews/database-language-cwnu-community.png" alt="CWNU Community 게시판 미리보기" width="100%" />
+#### 미리보기
 
-### [todo-app-mini-project-20222017](https://github.com/jeongiryang/todo-app-mini-project-20222017)
+<table>
+  <tr>
+    <td>
+      <img src="assets/previews/database-language-cwnu-community.gif" alt="CWNU Community 게시판 미리보기" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <sub>CWNU Community 게시판</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 2. [todo-app-mini-project-20222017](https://github.com/jeongiryang/todo-app-mini-project-20222017)
+
+#### [사이트 바로가기 ↗](https://todo-app-mini-project-20222017.vercel.app/)
 
 | 요약 | 기술 |
 |---|---|
 | AI-assisted workflow로 제작한 Todo 리스트 미니 프로젝트 | JavaScript, Vercel |
 
-<img src="assets/previews/todo-app-mini-project.png" alt="Todo 리스트 미니 프로젝트 미리보기" width="100%" />
+#### 미리보기
+
+<table>
+  <tr>
+    <td>
+      <img src="assets/previews/todo-app-mini-project.gif" alt="Todo 리스트 미니 프로젝트 미리보기" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <sub>Todo 리스트 미니 프로젝트</sub>
+    </td>
+  </tr>
+</table>
 
 ## 개발 중
 

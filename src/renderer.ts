@@ -73,21 +73,28 @@ function renderCompletedProjectsSection(projects: ProfileProject[]): string {
     return "표시할 프로젝트가 없습니다.";
   }
 
-  return projects.map(renderCompletedProjectBlock).join("\n\n");
+  return projects.map((project, index) => renderCompletedProjectBlock(project, index)).join("\n\n---\n\n");
 }
 
-function renderCompletedProjectBlock(project: ProfileProject): string {
+function renderCompletedProjectBlock(project: ProfileProject, index: number): string {
   const lines = [
-    `### ${renderProjectName(project)}`,
-    "",
+    `### ${index + 1}. ${renderProjectName(project)}`,
+    ""
+  ];
+
+  if (project.demoUrl) {
+    lines.push(`#### [사이트 바로가기 ↗](${project.demoUrl})`, "");
+  }
+
+  lines.push(
     "| 요약 | 기술 |",
     "|---|---|",
     renderRow([project.description, renderTech(project)])
-  ];
+  );
 
   const previewImage = renderCompletedPreviewImage(project);
   if (previewImage) {
-    lines.push("", previewImage);
+    lines.push("", "#### 미리보기", "", previewImage);
   }
 
   return lines.join("\n");
@@ -139,7 +146,22 @@ function renderCompletedPreviewImage(project: ProfileProject): string {
   }
 
   const alt = project.previewAlt || `${project.displayName} 미리보기`;
-  return `<img src="${escapeHtmlAttribute(project.previewImage)}" alt="${escapeHtmlAttribute(alt)}" width="100%" />`;
+  const caption = project.previewCaption || project.displayName;
+
+  return [
+    "<table>",
+    "  <tr>",
+    "    <td>",
+    `      <img src="${escapeHtmlAttribute(project.previewImage)}" alt="${escapeHtmlAttribute(alt)}" width="100%" />`,
+    "    </td>",
+    "  </tr>",
+    "  <tr>",
+    "    <td align=\"center\">",
+    `      <sub>${escapeHtmlText(caption)}</sub>`,
+    "    </td>",
+    "  </tr>",
+    "</table>"
+  ].join("\n");
 }
 
 function sortedProjects(projects: ProfileProject[], section: ProjectSection): ProfileProject[] {
@@ -166,6 +188,13 @@ function escapeHtmlAttribute(value: string): string {
   return value
     .replaceAll("&", "&amp;")
     .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function escapeHtmlText(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
 }
