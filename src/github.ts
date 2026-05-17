@@ -77,9 +77,9 @@ function createFallbackActivity(username: string): RecentActivity {
     source: "fallback",
     username,
     items: [
-      "Keeping the profile dashboard generator ready for local and GitHub Actions runs.",
-      "Building practical portfolio projects across backend, databases, and software engineering.",
-      "Using fallback activity data because the GitHub API was unavailable during generation."
+      "프로필 대시보드 generator를 로컬 실행과 GitHub Actions 실행 모두 가능하도록 유지하고 있습니다.",
+      "Backend, Database, Software Engineering 중심의 실용 프로젝트를 진행하고 있습니다.",
+      "GitHub API를 사용할 수 없는 환경에서는 fallback 활동 데이터를 사용해 README를 생성합니다."
     ]
   };
 }
@@ -90,32 +90,41 @@ function formatEvent(event: GitHubEvent): string | undefined {
   switch (event.type) {
     case "PushEvent": {
       const commitCount = event.payload?.size ?? 0;
-      return `Pushed ${commitCount || "new"} commit${commitCount === 1 ? "" : "s"} to ${repo}.`;
+      return `${repo}에 ${commitCount || "새"}개 커밋을 push했습니다.`;
     }
     case "CreateEvent": {
       const refType = event.payload?.ref_type ?? "ref";
       const ref = event.payload?.ref ? ` ${event.payload.ref}` : "";
-      return `Created ${refType}${ref} in ${repo}.`;
+      return `${repo}에서 ${refType}${ref}를 생성했습니다.`;
     }
     case "PullRequestEvent": {
       const action = event.payload?.action ?? "updated";
       const number = event.payload?.pull_request?.number ?? event.payload?.number;
-      return `${capitalize(action)} pull request${number ? ` #${number}` : ""} in ${repo}.`;
+      return `${repo}의 pull request${number ? ` #${number}` : ""}를 ${formatAction(action)}`;
     }
     case "IssuesEvent": {
       const action = event.payload?.action ?? "updated";
       const number = event.payload?.issue?.number;
-      return `${capitalize(action)} issue${number ? ` #${number}` : ""} in ${repo}.`;
+      return `${repo}의 issue${number ? ` #${number}` : ""}를 ${formatAction(action)}`;
     }
     case "WatchEvent":
-      return `Starred ${repo}.`;
+      return `${repo} 저장소에 star를 남겼습니다.`;
     case "ForkEvent":
-      return `Forked ${repo}.`;
+      return `${repo} 저장소를 fork했습니다.`;
     default:
-      return `Recorded ${event.type.replace(/Event$/, "")} activity in ${repo}.`;
+      return `${repo}에서 ${event.type.replace(/Event$/, "")} 활동이 기록되었습니다.`;
   }
 }
 
-function capitalize(value: string): string {
-  return value.length === 0 ? value : `${value[0].toUpperCase()}${value.slice(1)}`;
+function formatAction(action: string): string {
+  const labels: Record<string, string> = {
+    opened: "열었습니다.",
+    closed: "닫았습니다.",
+    reopened: "다시 열었습니다.",
+    synchronize: "동기화했습니다.",
+    edited: "수정했습니다.",
+    updated: "업데이트했습니다."
+  };
+
+  return labels[action] ?? `${action} 상태로 업데이트했습니다.`;
 }
