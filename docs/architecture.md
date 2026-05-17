@@ -24,7 +24,8 @@ README는 직접 수정하지 않고 TypeScript generator로 생성합니다.
 - `in_progress`: `개발 중`
 - `assignment`: `완료한 과제`
 
-`개발 완료` table만 미리보기 이미지를 사용합니다. `개발 중` table은 `프로젝트 / 요약 / 기술`,
+`개발 완료`는 프로젝트별 block으로 렌더링하고 각 block 아래에 큰 preview 이미지를 표시합니다.
+`개발 중` table은 `프로젝트 / 요약 / 기술`,
 `완료한 과제` table은 `과제 / 요약 / 기술`만 표시합니다.
 
 ## 주요 파일
@@ -39,14 +40,20 @@ README는 직접 수정하지 않고 TypeScript generator로 생성합니다.
 
 ## Preview 이미지 정책
 
-`previewImage`가 있는 개발 완료 프로젝트는 README table에 다음 형태로 렌더링됩니다.
+`previewImage`가 있는 개발 완료 프로젝트는 개별 프로젝트 block 아래에 다음 형태로 렌더링됩니다.
 
 ```html
-<img src="assets/previews/todo-app-mini-project.png" width="420" alt="Todo 리스트 미니 프로젝트 미리보기" />
+<img src="assets/previews/todo-app-mini-project.png" alt="Todo 리스트 미니 프로젝트 미리보기" width="100%" />
 ```
 
-이미지 width는 `420`으로 고정합니다. `previewImage`가 비어 있으면 `-`로 표시합니다.
+이미지 width는 `100%`로 지정합니다. `previewImage`가 비어 있으면 이미지 태그를 표시하지 않습니다.
 외부 이미지 호스팅은 사용하지 않습니다.
+
+## GitHub 메타데이터 정책
+
+Issue와 PR의 제목/본문은 한국어 중심으로 관리합니다. `feat:`, `chore:`, `docs:` 같은
+conventional commit prefix, branch 이름, 파일명, 명령어, 커밋 해시, URL, repository 이름은
+원문을 유지합니다.
 
 ## 링크 정책
 

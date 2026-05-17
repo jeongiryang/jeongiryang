@@ -8,8 +8,6 @@ export interface ReadmeRenderInput {
   projects: ProfileProject[];
 }
 
-const PREVIEW_WIDTH = 420;
-
 export async function renderReadme(input: ReadmeRenderInput): Promise<string> {
   const template = await readFile(input.templatePath, "utf8");
   const completedProjects = sortedProjects(input.projects, "completed");
@@ -20,7 +18,7 @@ export async function renderReadme(input: ReadmeRenderInput): Promise<string> {
     GENERATED_COMMENT: renderHiddenGeneratedComment(input.lastUpdated),
     HERO: renderHero(input.profile),
     ABOUT_ME: renderAboutMe(input.profile),
-    COMPLETED_PROJECTS: renderCompletedProjectsTable(completedProjects),
+    COMPLETED_PROJECTS: renderCompletedProjectsSection(completedProjects),
     IN_PROGRESS_PROJECTS: renderInProgressProjectsTable(inProgressProjects),
     COMPLETED_ASSIGNMENTS: renderCompletedAssignmentsTable(assignmentProjects)
   };
@@ -70,23 +68,29 @@ function renderAboutMe(profile: ProfileConfig): string {
   ].join("\n");
 }
 
-function renderCompletedProjectsTable(projects: ProfileProject[]): string {
+function renderCompletedProjectsSection(projects: ProfileProject[]): string {
   if (projects.length === 0) {
     return "표시할 프로젝트가 없습니다.";
   }
 
-  return [
-    "| 프로젝트 | 요약 | 기술 | 미리보기 |",
-    "|---|---|---|---|",
-    ...projects.map((project) =>
-      renderRow([
-        renderProjectName(project),
-        project.description,
-        renderTech(project),
-        renderPreviewImage(project)
-      ])
-    )
-  ].join("\n");
+  return projects.map(renderCompletedProjectBlock).join("\n\n");
+}
+
+function renderCompletedProjectBlock(project: ProfileProject): string {
+  const lines = [
+    `### ${renderProjectName(project)}`,
+    "",
+    "| 요약 | 기술 |",
+    "|---|---|",
+    renderRow([project.description, renderTech(project)])
+  ];
+
+  const previewImage = renderCompletedPreviewImage(project);
+  if (previewImage) {
+    lines.push("", previewImage);
+  }
+
+  return lines.join("\n");
 }
 
 function renderInProgressProjectsTable(projects: ProfileProject[]): string {
@@ -129,13 +133,13 @@ function renderTech(project: ProfileProject): string {
   return project.tech.join(", ");
 }
 
-function renderPreviewImage(project: ProfileProject): string {
+function renderCompletedPreviewImage(project: ProfileProject): string {
   if (!project.previewImage) {
-    return "-";
+    return "";
   }
 
   const alt = project.previewAlt || `${project.displayName} 미리보기`;
-  return `<img src="${project.previewImage}" width="${PREVIEW_WIDTH}" alt="${alt}" />`;
+  return `<img src="${escapeHtmlAttribute(project.previewImage)}" alt="${escapeHtmlAttribute(alt)}" width="100%" />`;
 }
 
 function sortedProjects(projects: ProfileProject[], section: ProjectSection): ProfileProject[] {
@@ -156,4 +160,12 @@ function renderRow(values: string[]): string {
 
 function escapeMarkdownTableCell(value: string): string {
   return value.replaceAll("|", "\\|").replaceAll("\n", " ");
+}
+
+function escapeHtmlAttribute(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 }
