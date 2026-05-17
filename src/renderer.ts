@@ -1,24 +1,28 @@
 import { readFile } from "node:fs/promises";
-import type { FeaturedProject, ProfileConfig } from "./projects";
+import type { ProfileConfig, ProfileProject, ProjectSection } from "./projects";
 
 export interface ReadmeRenderInput {
   templatePath: string;
   lastUpdated: string;
   profile: ProfileConfig;
-  projects: FeaturedProject[];
+  projects: ProfileProject[];
 }
+
+const PREVIEW_WIDTH = 180;
 
 export async function renderReadme(input: ReadmeRenderInput): Promise<string> {
   const template = await readFile(input.templatePath, "utf8");
-  const inProgressProjects = sortedProjects(input.projects, "in_progress");
   const completedProjects = sortedProjects(input.projects, "completed");
+  const inProgressProjects = sortedProjects(input.projects, "in_progress");
+  const courseworkProjects = sortedProjects(input.projects, "coursework");
 
   const replacements: Record<string, string> = {
     GENERATED_COMMENT: renderHiddenGeneratedComment(input.lastUpdated),
     HERO: renderHero(input.profile),
     ABOUT_ME: renderAboutMe(input.profile),
-    IN_PROGRESS_PROJECTS: renderInProgressProjectsTable(inProgressProjects),
     COMPLETED_PROJECTS: renderCompletedProjectsTable(completedProjects),
+    IN_PROGRESS_PROJECTS: renderInProgressProjectsTable(inProgressProjects),
+    COURSEWORK_PROJECTS: renderCourseworkProjectsTable(courseworkProjects),
     FOOTER: renderFooter()
   };
 
@@ -64,43 +68,59 @@ function renderAboutMe(profile: ProfileConfig): string {
   ].join("\n");
 }
 
-function renderInProgressProjectsTable(projects: FeaturedProject[]): string {
+function renderCompletedProjectsTable(projects: ProfileProject[]): string {
   if (projects.length === 0) {
     return "표시할 프로젝트가 없습니다.";
   }
 
   return [
-    "| 제목 | 요약 | 기술 |",
-    "|---|---|---|",
+    "| 프로젝트 | 요약 | 결과 | 미리보기 |",
+    "|---|---|---|---|",
     ...projects.map((project) =>
-      [
+      renderRow([
         renderProjectName(project),
         project.description,
-        renderPlainStack(project.stack)
-      ]
-        .map(escapeMarkdownTableCell)
-        .join(" | ")
-    ).map((row) => `| ${row} |`)
+        project.result,
+        renderPreviewImage(project)
+      ])
+    )
   ].join("\n");
 }
 
-function renderCompletedProjectsTable(projects: FeaturedProject[]): string {
+function renderInProgressProjectsTable(projects: ProfileProject[]): string {
   if (projects.length === 0) {
     return "표시할 프로젝트가 없습니다.";
   }
 
   return [
-    "| 제목 | 요약 | 결과 |",
-    "|---|---|---|",
+    "| 프로젝트 | 요약 | 진행 내용 | 미리보기 |",
+    "|---|---|---|---|",
     ...projects.map((project) =>
-      [
+      renderRow([
         renderProjectName(project),
         project.description,
-        project.result
-      ]
-        .map(escapeMarkdownTableCell)
-        .join(" | ")
-    ).map((row) => `| ${row} |`)
+        project.result,
+        renderPreviewImage(project)
+      ])
+    )
+  ].join("\n");
+}
+
+function renderCourseworkProjectsTable(projects: ProfileProject[]): string {
+  if (projects.length === 0) {
+    return "표시할 과제가 없습니다.";
+  }
+
+  return [
+    "| 과제 | 요약 | 기술 |",
+    "|---|---|---|",
+    ...projects.map((project) =>
+      renderRow([
+        renderProjectName(project),
+        project.description,
+        project.tech.join(", ")
+      ])
+    )
   ].join("\n");
 }
 
@@ -114,20 +134,29 @@ function renderFooter(): string {
   ].join("\n");
 }
 
-function sortedProjects(projects: FeaturedProject[], status: FeaturedProject["status"]): FeaturedProject[] {
-  return projects.filter((project) => project.status === status).sort((a, b) => a.priority - b.priority);
-}
-
-function renderProjectName(project: FeaturedProject): string {
-  if (project.isPublic && project.displayUrl) {
-    return `[${project.name}](${project.url})`;
+function renderPreviewImage(project: ProfileProject): string {
+  if (!project.previewImage) {
+    return "-";
   }
 
-  return project.name;
+  const alt = project.previewAlt || `${project.displayName} 미리보기`;
+  return `<img src="${project.previewImage}" width="${PREVIEW_WIDTH}" alt="${alt}" />`;
 }
 
-function renderPlainStack(stack: string[]): string {
-  return stack.join(", ");
+function sortedProjects(projects: ProfileProject[], section: ProjectSection): ProfileProject[] {
+  return projects.filter((project) => project.section === section).sort((a, b) => a.priority - b.priority);
+}
+
+function renderProjectName(project: ProfileProject): string {
+  if (project.isPublic && !project.isPrivate && project.url) {
+    return `[${project.displayName}](${project.url})`;
+  }
+
+  return project.displayName;
+}
+
+function renderRow(values: string[]): string {
+  return `| ${values.map(escapeMarkdownTableCell).join(" | ")} |`;
 }
 
 function escapeMarkdownTableCell(value: string): string {

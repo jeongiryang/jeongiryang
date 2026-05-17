@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
-import type { FeaturedProject } from "../projects";
+import type { ProfileProject } from "../projects";
 
 const SVG_WIDTH = 960;
 const CARD_WIDTH = 426;
@@ -13,14 +13,14 @@ const SECTION_TITLE_HEIGHT = 34;
 const BOTTOM_PADDING = 34;
 
 export async function generateProjectCardsSvg(
-  projects: FeaturedProject[],
+  projects: ProfileProject[],
   outputPath: string
 ): Promise<void> {
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, renderProjectCardsSvg(projects), "utf8");
 }
 
-function renderProjectCardsSvg(projects: FeaturedProject[]): string {
+function renderProjectCardsSvg(projects: ProfileProject[]): string {
   const inProgressProjects = sortedProjects(projects, "in_progress");
   const completedProjects = sortedProjects(projects, "completed");
   const inProgressRows = Math.ceil(inProgressProjects.length / 2);
@@ -29,20 +29,21 @@ function renderProjectCardsSvg(projects: FeaturedProject[]): string {
     SECTION_TITLE_HEIGHT + inProgressRows * CARD_HEIGHT + Math.max(0, inProgressRows - 1) * GAP_Y;
   const completedBlockHeight =
     SECTION_TITLE_HEIGHT + completedRows * CARD_HEIGHT + Math.max(0, completedRows - 1) * GAP_Y;
-  const completedStartY = HEADER_HEIGHT + inProgressBlockHeight + 32;
-  const height = completedStartY + completedBlockHeight + BOTTOM_PADDING;
+  const completedStartY = HEADER_HEIGHT + completedBlockHeight + 32;
+  const inProgressStartY = completedStartY + inProgressBlockHeight + 32;
+  const height = inProgressStartY + BOTTOM_PADDING;
 
-  const inProgressCards = inProgressProjects
-    .map((project, index) => renderCard(project, index, HEADER_HEIGHT + SECTION_TITLE_HEIGHT, "현재 작업"))
-    .join("\n");
   const completedCards = completedProjects
-    .map((project, index) => renderCard(project, index, completedStartY + SECTION_TITLE_HEIGHT, "구현 결과"))
+    .map((project, index) => renderCard(project, index, HEADER_HEIGHT + SECTION_TITLE_HEIGHT, "구현 결과"))
+    .join("\n");
+  const inProgressCards = inProgressProjects
+    .map((project, index) => renderCard(project, index, completedStartY + SECTION_TITLE_HEIGHT, "진행 내용"))
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${SVG_WIDTH}" height="${height}" viewBox="0 0 ${SVG_WIDTH} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">자동 생성 프로젝트 카드</title>
-  <desc id="desc">진행 중인 프로젝트와 완료한 프로젝트를 요약한 보조 SVG 카드입니다.</desc>
+  <desc id="desc">개발 완료 프로젝트와 개발 중인 프로젝트를 요약한 보조 SVG 카드입니다.</desc>
   <style>
     .panel { fill: #f6f8fa; }
     .title { fill: #0f172a; font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif; }
@@ -61,30 +62,30 @@ function renderProjectCardsSvg(projects: FeaturedProject[]): string {
   </style>
   <rect class="panel" x="0" y="0" width="${SVG_WIDTH}" height="${height}" rx="10"/>
   <text class="title" x="${PADDING_X}" y="40">Project Portfolio Snapshot</text>
-  <text class="subtitle" x="${PADDING_X}" y="62">README 본문에서는 표를 우선 사용하고, 이 카드는 보조 요약으로 제공합니다.</text>
+  <text class="subtitle" x="${PADDING_X}" y="62">README 본문에는 삽입하지 않는 보조 생성물입니다.</text>
 
-  <text class="section" x="${PADDING_X}" y="${HEADER_HEIGHT + 22}">Now Building · 진행 중</text>
-  <text class="section-note" x="${PADDING_X + 174}" y="${HEADER_HEIGHT + 22}">현재 개발 중인 프로젝트</text>
-${inProgressCards}
-
-  <text class="section" x="${PADDING_X}" y="${completedStartY + 22}">Completed · 완료</text>
-  <text class="section-note" x="${PADDING_X + 142}" y="${completedStartY + 22}">구현 결과 중심 요약</text>
+  <text class="section" x="${PADDING_X}" y="${HEADER_HEIGHT + 22}">Completed · 개발 완료</text>
+  <text class="section-note" x="${PADDING_X + 174}" y="${HEADER_HEIGHT + 22}">구현 결과 중심 요약</text>
 ${completedCards}
+
+  <text class="section" x="${PADDING_X}" y="${completedStartY + 22}">Now Building · 개발 중</text>
+  <text class="section-note" x="${PADDING_X + 174}" y="${completedStartY + 22}">현재 진행 중인 프로젝트</text>
+${inProgressCards}
 </svg>
 `;
 }
 
-function renderCard(project: FeaturedProject, index: number, startY: number, detailLabel: string): string {
+function renderCard(project: ProfileProject, index: number, startY: number, detailLabel: string): string {
   const col = index % 2;
   const row = Math.floor(index / 2);
   const x = PADDING_X + col * (CARD_WIDTH + GAP_X);
   const y = startY + row * (CARD_HEIGHT + GAP_Y);
-  const statusLabel = project.status === "completed" ? "완료" : "진행 중";
-  const accentClass = project.status === "completed" ? "accent-completed" : "accent-progress";
-  const detail = project.status === "completed" ? project.result : project.description;
+  const statusLabel = project.section === "completed" ? "완료" : "진행 중";
+  const accentClass = project.section === "completed" ? "accent-completed" : "accent-progress";
+  const detail = project.result || project.description;
   const descriptionLines = wrapText(project.description, 48, 1);
   const detailLines = wrapText(detail, 36, 1);
-  const stackText = project.stack.join(" / ");
+  const stackText = project.tech.join(" / ");
   const pillWidth = getPillWidth(statusLabel);
 
   return `  <g transform="translate(${x} ${y})">
@@ -92,7 +93,7 @@ function renderCard(project: FeaturedProject, index: number, startY: number, det
     <rect class="${accentClass}" x="0" y="0" width="5" height="${CARD_HEIGHT}" rx="2.5"/>
     <rect class="${accentClass}" x="24" y="18" width="${pillWidth}" height="22" rx="11"/>
     <text class="pill-text" x="36" y="33">${escapeXml(statusLabel)}</text>
-    <text class="project" x="24" y="64">${escapeXml(truncateText(project.name, 42))}</text>
+    <text class="project" x="24" y="64">${escapeXml(truncateText(project.displayName, 42))}</text>
     <text class="description" x="24" y="87">${descriptionLines.map(escapeXml).join(" ")}</text>
     <text class="label" x="24" y="111">${escapeXml(detailLabel)}</text>
     <text class="detail" x="90" y="111">${detailLines.map(escapeXml).join(" ")}</text>
@@ -100,8 +101,8 @@ function renderCard(project: FeaturedProject, index: number, startY: number, det
   </g>`;
 }
 
-function sortedProjects(projects: FeaturedProject[], status: FeaturedProject["status"]): FeaturedProject[] {
-  return projects.filter((project) => project.status === status).sort((a, b) => a.priority - b.priority);
+function sortedProjects(projects: ProfileProject[], section: ProfileProject["section"]): ProfileProject[] {
+  return projects.filter((project) => project.section === section).sort((a, b) => a.priority - b.priority);
 }
 
 function getPillWidth(label: string): number {

@@ -20,51 +20,65 @@ npm run check
 
 ## README 수정 위치
 
-README 본문은 직접 수정하지 않고 `src/projects.ts`와 `README.template.md`를 수정한 뒤
-다시 생성합니다.
+README 본문은 직접 수정하지 않습니다. 다음 파일을 수정한 뒤 `npm run generate`를 실행합니다.
 
-- Hero 이름/학년: `profileConfig.name`, `profileConfig.role`
-- About Me note: `profileConfig.aboutNote`
-- About Me bullet: `profileConfig.aboutBullets`
-- 프로젝트 목록: `featuredProjects`
+- `README.template.md`: 섹션 순서
+- `src/projects.ts`: 프로젝트 데이터, preview 이미지, 공개/비공개 링크 정책
+- `src/renderer.ts`: Markdown table 렌더링 방식
 
-자동 생성 안내와 마지막 갱신 시간은 `src/renderer.ts`의 숨김 HTML 주석으로만 출력됩니다.
-화면에는 `자동 갱신 정보` 섹션이 표시되지 않습니다.
+## 프로젝트 데이터 필드
 
-## 프로젝트 데이터
+`src/projects.ts`의 `profileProjects` 항목은 다음 필드를 사용합니다.
 
-`featuredProjects` 항목은 README table에 바로 들어가므로 짧게 유지합니다.
-
-- `name`: 표시 제목
+- `name`: repository 이름
+- `displayName`: README에 표시할 이름
 - `description`: 한 줄 요약
-- `stack`: 개발 중 프로젝트에 표시할 핵심 기술 2~3개
-- `status`: `in_progress` 또는 `completed`
-- `priority`: 정렬 순서
+- `result`: 완료 결과 또는 진행 내용
+- `tech`: 기술 목록
+- `section`: `completed`, `in_progress`, `coursework`
+- `priority`: 섹션 내 정렬 순서
+- `isPublic`: 공개 repository 여부
 - `url`: GitHub URL
-- `result`: 완료 프로젝트의 핵심 결과
-- `isPublic`, `displayUrl`: 링크 표시 여부
+- `previewImage`: repository 내부 preview 이미지 경로
+- `previewAlt`: preview 이미지 alt 텍스트
+- `isPrivate`: private repository 여부
+- `isArchived`: archive repository 여부
 
-링크가 확실하지 않으면 `displayUrl: false`로 두면 됩니다.
+## 섹션별 표시 방식
 
-## 표시 섹션
+- `completed`: 프로젝트, 요약, 결과, 미리보기
+- `in_progress`: 프로젝트, 요약, 진행 내용, 미리보기
+- `coursework`: 과제, 요약, 기술
 
-현재 README 화면에는 다음만 표시됩니다.
+개발 완료 프로젝트가 개발 중 프로젝트보다 먼저 표시됩니다.
 
-- Hero
-- About Me
-- 개발 중인 프로젝트
-- 개발 완료 프로젝트
-- Footer
+## Preview 이미지 추가
 
-기술 스택, Education, AI-assisted workflow 독립 섹션, 자동 갱신 정보, SVG 카드는
-표시하지 않습니다.
+이미지는 `assets/previews/`에 둡니다.
+
+권장 파일명:
+
+- `assets/previews/cwnu-campus-hub.png`
+- `assets/previews/database-language-cwnu-community.png`
+- `assets/previews/3am-computer-science-mystery-room.png`
+- `assets/previews/todo-app-mini-project.png`
+- `assets/previews/smart-edu-platform.png`
+- `assets/previews/barrier-free-tour-data-app.png`
+
+매핑이 불확실한 이미지는 `assets/previews/inbox/`에 둔 뒤 나중에 확인합니다.
+
+## 링크 정책
+
+확실히 공개된 repository만 링크합니다. Private repository는 README에서 일반 텍스트로 표시합니다.
+
+프로필 노출에서 제외하는 repository:
+
+- `jeongiryang`
+- `Turtle-Hwan`
+- `GitHub_Practice`
+- `Coding_Study_Note`
 
 ## SVG 파일
 
-`assets/generated/project-cards.svg`는 계속 생성됩니다. 하지만 README 본문에는 삽입하지
-않습니다. 향후 별도 시각 자료가 필요할 때 재사용할 수 있는 보조 생성물입니다.
-
-## GitHub Actions
-
-`.github/workflows/update-profile.yml`은 수동 실행과 하루 1회 schedule 실행을 지원합니다.
-변경사항이 있을 때만 generated README와 SVG를 커밋합니다.
+`assets/generated/project-cards.svg`는 계속 생성되지만 README 본문에는 삽입하지 않습니다.
+이번 README의 중심 UI는 Markdown table과 preview image column입니다.
