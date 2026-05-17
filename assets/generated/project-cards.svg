@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960" height="418" viewBox="0 0 960 418" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Featured Project Dashboard</title>
+  <desc id="desc">Generated summary cards for jeongiryang's featured GitHub profile projects.</desc>
+  <style>
+    .panel { fill: #f6f8fa; }
+    .title { fill: #111827; font: 700 26px Arial, sans-serif; }
+    .subtitle { fill: #4b5563; font: 400 14px Arial, sans-serif; }
+    .card { fill: #ffffff; stroke: #d0d7de; stroke-width: 1; }
+    .project { fill: #0f172a; font: 700 17px Arial, sans-serif; }
+    .status { fill: #0969da; font: 700 12px Arial, sans-serif; }
+    .description { fill: #374151; font: 400 13px Arial, sans-serif; }
+    .stack { fill: #57606a; font: 700 12px Arial, sans-serif; }
+    .accent-blue { fill: #0969da; }
+    .accent-green { fill: #1a7f37; }
+    .accent-amber { fill: #9a6700; }
+    .accent-red { fill: #cf222e; }
+  </style>
+  <rect class="panel" x="0" y="0" width="960" height="418" rx="8"/>
+  <circle class="accent-blue" cx="42" cy="40" r="7"/>
+  <circle class="accent-green" cx="64" cy="40" r="7"/>
+  <circle class="accent-amber" cx="86" cy="40" r="7"/>
+  <text class="title" x="112" y="48">Featured Project Dashboard</text>
+  <text class="subtitle" x="112" y="69">Generated from local TypeScript project metadata</text>
+  <g transform="translate(38 82)">
+    <rect class="card" x="0" y="0" width="428" height="136" rx="8"/>
+    <rect class="accent-blue" x="0" y="0" width="5" height="136" rx="2.5"/>
+    <text class="project" x="22" y="31">cwnu-campus-hub</text>
+    <text class="status" x="22" y="54">Building</text>
+    <text class="description" x="22" y="78">
+      <tspan x="22" dy="0">Campus utility hub concept for collecting useful CWNU</tspan>
+      <tspan x="22" dy="17">student resources, schedules, and everyday links in one...</tspan>
+    </text>
+    <text class="stack" x="22" y="119">TypeScript / React / Node.js / SQL</text>
+  </g>
+  <g transform="translate(494 82)">
+    <rect class="card" x="0" y="0" width="428" height="136" rx="8"/>
+    <rect class="accent-green" x="0" y="0" width="5" height="136" rx="2.5"/>
+    <text class="project" x="22" y="31">3AM Computer Science: Mystery Room</text>
+    <text class="status" x="22" y="54">Prototype</text>
+    <text class="description" x="22" y="78">
+      <tspan x="22" dy="0">Narrative mystery-room game concept where computer science</tspan>
+      <tspan x="22" dy="17">topics become puzzles and progression mechanics.</tspan>
+    </text>
+    <text class="stack" x="22" y="119">Godot / Game Design / Computer Science</text>
+  </g>
+  <g transform="translate(38 246)">
+    <rect class="card" x="0" y="0" width="428" height="136" rx="8"/>
+    <rect class="accent-amber" x="0" y="0" width="5" height="136" rx="2.5"/>
+    <text class="project" x="22" y="31">DBMS Web Board Project</text>
+    <text class="status" x="22" y="54">Course Project</text>
+    <text class="description" x="22" y="78">
+      <tspan x="22" dy="0">Database-backed web board project focused on CRUD flows,</tspan>
+      <tspan x="22" dy="17">relational modeling, SQL practice, and backend...</tspan>
+    </text>
+    <text class="stack" x="22" y="119">Node.js / JavaScript / SQL / Database</text>
+  </g>
+  <g transform="translate(494 246)">
+    <rect class="card" x="0" y="0" width="428" height="136" rx="8"/>
+    <rect class="accent-red" x="0" y="0" width="5" height="136" rx="2.5"/>
+    <text class="project" x="22" y="31">Smart Edu Platform</text>
+    <text class="status" x="22" y="54">Planning</text>
+    <text class="description" x="22" y="78">
+      <tspan x="22" dy="0">Education platform prototype for organizing learning</tspan>
+      <tspan x="22" dy="17">content, user workflows, and practical dashboard features.</tspan>
+    </text>
+    <text class="stack" x="22" y="119">TypeScript / React / Node.js / SQL</text>
+  </g>
+</svg>
