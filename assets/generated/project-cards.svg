@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="960" height="628" viewBox="0 0 960 628" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="960" height="660" viewBox="0 0 960 660" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">자동 생성 프로젝트 카드</title>
-  <desc id="desc">진행 중인 프로젝트와 완료한 프로젝트를 요약한 보조 SVG 카드입니다.</desc>
+  <desc id="desc">개발 완료 프로젝트와 개발 중인 프로젝트를 요약한 보조 SVG 카드입니다.</desc>
   <style>
     .panel { fill: #f6f8fa; }
     .title { fill: #0f172a; font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif; }
@@ -18,68 +18,79 @@
     .accent-progress { fill: #0969da; }
     .accent-completed { fill: #1a7f37; }
   </style>
-  <rect class="panel" x="0" y="0" width="960" height="628" rx="10"/>
+  <rect class="panel" x="0" y="0" width="960" height="660" rx="10"/>
   <text class="title" x="40" y="40">Project Portfolio Snapshot</text>
-  <text class="subtitle" x="40" y="62">README 본문에서는 표를 우선 사용하고, 이 카드는 보조 요약으로 제공합니다.</text>
+  <text class="subtitle" x="40" y="62">README 본문에는 삽입하지 않는 보조 생성물입니다.</text>
 
-  <text class="section" x="40" y="100">Now Building · 진행 중</text>
-  <text class="section-note" x="214" y="100">현재 개발 중인 프로젝트</text>
+  <text class="section" x="40" y="100">Completed · 개발 완료</text>
+  <text class="section-note" x="214" y="100">구현 결과 중심 요약</text>
   <g transform="translate(40 112)">
+    <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
+    <rect class="accent-completed" x="0" y="0" width="5" height="132" rx="2.5"/>
+    <rect class="accent-completed" x="24" y="18" width="52" height="22" rx="11"/>
+    <text class="pill-text" x="36" y="33">완료</text>
+    <text class="project" x="24" y="64">DatabaseLanguage_NodeJS_CWNU-Community</text>
+    <text class="description" x="24" y="87">Node.js와 PostgreSQL 기반 CWNU Community 게시판</text>
+    <text class="label" x="24" y="111">구현 결과</text>
+    <text class="detail" x="90" y="111">회원가입, 로그인, 게시글, 댓글, 좋아요,</text>
+    <text class="stack" x="24" y="126">Node.js / PostgreSQL / Express</text>
+  </g>
+  <g transform="translate(494 112)">
+    <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
+    <rect class="accent-completed" x="0" y="0" width="5" height="132" rx="2.5"/>
+    <rect class="accent-completed" x="24" y="18" width="52" height="22" rx="11"/>
+    <text class="pill-text" x="36" y="33">완료</text>
+    <text class="project" x="24" y="64">todo-app-mini-project-20222017</text>
+    <text class="description" x="24" y="87">AI-assisted workflow로 제작한 Todo 리스트 미니...</text>
+    <text class="label" x="24" y="111">구현 결과</text>
+    <text class="detail" x="90" y="111">Todo CRUD, 배포, 문서화</text>
+    <text class="stack" x="24" y="126">JavaScript / Todo App</text>
+  </g>
+
+  <text class="section" x="40" y="298">Now Building · 개발 중</text>
+  <text class="section-note" x="214" y="298">현재 진행 중인 프로젝트</text>
+  <g transform="translate(40 310)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
     <rect class="accent-progress" x="0" y="0" width="5" height="132" rx="2.5"/>
     <rect class="accent-progress" x="24" y="18" width="73" height="22" rx="11"/>
     <text class="pill-text" x="36" y="33">진행 중</text>
     <text class="project" x="24" y="64">cwnu-campus-hub</text>
     <text class="description" x="24" y="87">창원대학교 생활 편의 기능을 모은 캠퍼스 허브</text>
-    <text class="label" x="24" y="111">현재 작업</text>
-    <text class="detail" x="90" y="111">창원대학교 생활 편의 기능을 모은 캠퍼스</text>
+    <text class="label" x="24" y="111">진행 내용</text>
+    <text class="detail" x="90" y="111">링크 레지스트리, 홈 대시보드, 즐겨찾기</text>
     <text class="stack" x="24" y="126">TypeScript / React / Node.js</text>
   </g>
-  <g transform="translate(494 112)">
+  <g transform="translate(494 310)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
     <rect class="accent-progress" x="0" y="0" width="5" height="132" rx="2.5"/>
     <rect class="accent-progress" x="24" y="18" width="73" height="22" rx="11"/>
     <text class="pill-text" x="36" y="33">진행 중</text>
-    <text class="project" x="24" y="64">3AM Computer Science: Mystery Room</text>
-    <text class="description" x="24" y="87">컴퓨터공학 개념을 퍼즐로 녹인 Godot 게임</text>
-    <text class="label" x="24" y="111">현재 작업</text>
-    <text class="detail" x="90" y="111">컴퓨터공학 개념을 퍼즐로 녹인 Godot 게임</text>
+    <text class="project" x="24" y="64">3am-computer-science-mystery-room</text>
+    <text class="description" x="24" y="87">Codex-assisted workflow로 제작 중인 Godot 기반 2D</text>
+    <text class="label" x="24" y="111">진행 내용</text>
+    <text class="detail" x="90" y="111">룸 구성, 상호작용, 비주얼 개선</text>
     <text class="stack" x="24" y="126">Godot / GDScript</text>
   </g>
-  <g transform="translate(40 264)">
+  <g transform="translate(40 462)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
     <rect class="accent-progress" x="0" y="0" width="5" height="132" rx="2.5"/>
     <rect class="accent-progress" x="24" y="18" width="73" height="22" rx="11"/>
     <text class="pill-text" x="36" y="33">진행 중</text>
-    <text class="project" x="24" y="64">GitHub Profile Dashboard</text>
-    <text class="description" x="24" y="87">프로필 README 자동 생성 프로젝트</text>
-    <text class="label" x="24" y="111">현재 작업</text>
-    <text class="detail" x="90" y="111">프로필 README 자동 생성 프로젝트</text>
-    <text class="stack" x="24" y="126">TypeScript / GitHub Actions</text>
-  </g>
-
-  <text class="section" x="40" y="450">Completed · 완료</text>
-  <text class="section-note" x="182" y="450">구현 결과 중심 요약</text>
-  <g transform="translate(40 462)">
-    <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
-    <rect class="accent-completed" x="0" y="0" width="5" height="132" rx="2.5"/>
-    <rect class="accent-completed" x="24" y="18" width="52" height="22" rx="11"/>
-    <text class="pill-text" x="36" y="33">완료</text>
-    <text class="project" x="24" y="64">DBMS Web Board Project</text>
-    <text class="description" x="24" y="87">Node.js와 SQL 기반 웹 게시판</text>
-    <text class="label" x="24" y="111">구현 결과</text>
-    <text class="detail" x="90" y="111">회원가입, 로그인, 게시글, 댓글, 좋아요,</text>
-    <text class="stack" x="24" y="126">Node.js / Express / SQL</text>
+    <text class="project" x="24" y="64">SoftwareEngineering_team15_project_-Sma...</text>
+    <text class="description" x="24" y="87">개인화 학습 관리 앱 팀 프로젝트</text>
+    <text class="label" x="24" y="111">진행 내용</text>
+    <text class="detail" x="90" y="111">요구사항 분석, 설계, 구현 구조 정리</text>
+    <text class="stack" x="24" y="126">React Native / Expo</text>
   </g>
   <g transform="translate(494 462)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
-    <rect class="accent-completed" x="0" y="0" width="5" height="132" rx="2.5"/>
-    <rect class="accent-completed" x="24" y="18" width="52" height="22" rx="11"/>
-    <text class="pill-text" x="36" y="33">완료</text>
-    <text class="project" x="24" y="64">Smart Edu Platform</text>
-    <text class="description" x="24" y="87">개인화 학습 관리 앱 팀 프로젝트</text>
-    <text class="label" x="24" y="111">구현 결과</text>
-    <text class="detail" x="90" y="111">요구사항 분석, 설계, 구현 구조, 문서화</text>
-    <text class="stack" x="24" y="126">React Native / Expo</text>
+    <rect class="accent-progress" x="0" y="0" width="5" height="132" rx="2.5"/>
+    <rect class="accent-progress" x="24" y="18" width="73" height="22" rx="11"/>
+    <text class="pill-text" x="36" y="33">진행 중</text>
+    <text class="project" x="24" y="64">2026-barrier-free-tour-data-app</text>
+    <text class="description" x="24" y="87">사회적 약자를 위한 경상남도 맞춤형 관광 경로 안내...</text>
+    <text class="label" x="24" y="111">진행 내용</text>
+    <text class="detail" x="90" y="111">관광 데이터 활용, 경로 안내, 우회로 설계</text>
+    <text class="stack" x="24" y="126">Data / Route Planning</text>
   </g>
 </svg>

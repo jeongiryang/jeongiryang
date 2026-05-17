@@ -1,16 +1,19 @@
-export type ProjectStatus = "in_progress" | "completed";
+export type ProjectSection = "completed" | "in_progress" | "coursework";
 
-export interface FeaturedProject {
+export interface ProfileProject {
   name: string;
-  repo: string;
+  displayName: string;
   description: string;
-  stack: string[];
-  status: ProjectStatus;
-  priority: number;
-  url: string;
   result: string;
+  tech: string[];
+  section: ProjectSection;
+  priority: number;
   isPublic: boolean;
-  displayUrl: boolean;
+  url: string;
+  previewImage: string;
+  previewAlt: string;
+  isPrivate: boolean;
+  isArchived: boolean;
 }
 
 export interface ProfileConfig {
@@ -34,65 +37,200 @@ export const profileConfig: ProfileConfig = {
   ]
 };
 
-export const featuredProjects: FeaturedProject[] = [
+export const profileProjects: ProfileProject[] = [
+  {
+    name: "DatabaseLanguage_NodeJS_CWNU-Community",
+    displayName: "DatabaseLanguage_NodeJS_CWNU-Community",
+    description: "Node.js와 PostgreSQL 기반 CWNU Community 게시판",
+    result: "회원가입, 로그인, 게시글, 댓글, 좋아요, 페이징",
+    tech: ["Node.js", "PostgreSQL", "Express"],
+    section: "completed",
+    priority: 1,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community",
+    previewImage: "assets/previews/database-language-cwnu-community.png",
+    previewAlt: "CWNU Community 게시판 미리보기",
+    isPrivate: false,
+    isArchived: false
+  },
+  {
+    name: "todo-app-mini-project-20222017",
+    displayName: "todo-app-mini-project-20222017",
+    description: "AI-assisted workflow로 제작한 Todo 리스트 미니 프로젝트",
+    result: "Todo CRUD, 배포, 문서화",
+    tech: ["JavaScript", "Todo App"],
+    section: "completed",
+    priority: 2,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/todo-app-mini-project-20222017",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: true
+  },
   {
     name: "cwnu-campus-hub",
-    repo: "cwnu-campus-hub",
+    displayName: "cwnu-campus-hub",
     description: "창원대학교 생활 편의 기능을 모은 캠퍼스 허브",
-    stack: ["TypeScript", "React", "Node.js"],
-    status: "in_progress",
+    result: "링크 레지스트리, 홈 대시보드, 즐겨찾기",
+    tech: ["TypeScript", "React", "Node.js"],
+    section: "in_progress",
     priority: 1,
+    isPublic: true,
     url: "https://github.com/jeongiryang/cwnu-campus-hub",
-    result: "",
-    isPublic: true,
-    displayUrl: true
+    previewImage: "assets/previews/cwnu-campus-hub.png",
+    previewAlt: "CWNU Campus Hub 미리보기",
+    isPrivate: false,
+    isArchived: false
   },
   {
-    name: "3AM Computer Science: Mystery Room",
-    repo: "3am-computer-science-mystery-room",
-    description: "컴퓨터공학 개념을 퍼즐로 녹인 Godot 게임",
-    stack: ["Godot", "GDScript"],
-    status: "in_progress",
+    name: "3am-computer-science-mystery-room",
+    displayName: "3am-computer-science-mystery-room",
+    description: "Codex-assisted workflow로 제작 중인 Godot 기반 2D 인터랙티브 게임",
+    result: "룸 구성, 상호작용, 비주얼 개선",
+    tech: ["Godot", "GDScript"],
+    section: "in_progress",
     priority: 2,
-    url: "https://github.com/jeongiryang/3am-computer-science-mystery-room",
-    result: "",
-    isPublic: false,
-    displayUrl: false
-  },
-  {
-    name: "GitHub Profile Dashboard",
-    repo: "jeongiryang",
-    description: "프로필 README 자동 생성 프로젝트",
-    stack: ["TypeScript", "GitHub Actions"],
-    status: "in_progress",
-    priority: 3,
-    url: "https://github.com/jeongiryang/jeongiryang",
-    result: "",
     isPublic: true,
-    displayUrl: true
+    url: "https://github.com/jeongiryang/3am-computer-science-mystery-room",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: false
   },
   {
-    name: "DBMS Web Board Project",
-    repo: "dbms-web-board-project",
-    description: "Node.js와 SQL 기반 웹 게시판",
-    stack: ["Node.js", "Express", "SQL"],
-    status: "completed",
-    priority: 4,
-    url: "https://github.com/jeongiryang/dbms-web-board-project",
-    result: "회원가입, 로그인, 게시글, 댓글, 좋아요, 페이징",
-    isPublic: false,
-    displayUrl: false
-  },
-  {
-    name: "Smart Edu Platform",
-    repo: "smart-edu-platform",
+    name: "SoftwareEngineering_team15_project_-Smart-Edu-Platform",
+    displayName: "SoftwareEngineering_team15_project_-Smart-Edu-Platform",
     description: "개인화 학습 관리 앱 팀 프로젝트",
-    stack: ["React Native", "Expo"],
-    status: "completed",
-    priority: 5,
-    url: "https://github.com/jeongiryang/smart-edu-platform",
-    result: "요구사항 분석, 설계, 구현 구조, 문서화",
+    result: "요구사항 분석, 설계, 구현 구조 정리",
+    tech: ["React Native", "Expo"],
+    section: "in_progress",
+    priority: 3,
     isPublic: false,
-    displayUrl: false
+    url: "",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: true,
+    isArchived: false
+  },
+  {
+    name: "2026-barrier-free-tour-data-app",
+    displayName: "2026-barrier-free-tour-data-app",
+    description: "사회적 약자를 위한 경상남도 맞춤형 관광 경로 안내 서비스",
+    result: "관광 데이터 활용, 경로 안내, 우회로 설계",
+    tech: ["Data", "Route Planning"],
+    section: "in_progress",
+    priority: 4,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/2026-barrier-free-tour-data-app",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: false
+  },
+  {
+    name: "DatabaseLanguage_SQL_Assignment",
+    displayName: "DatabaseLanguage_SQL_Assignment",
+    description: "MariaDB 환경에서 요구사항에 맞는 SQL 쿼리 작성",
+    result: "",
+    tech: ["SQL", "MariaDB"],
+    section: "coursework",
+    priority: 1,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/DatabaseLanguage_SQL_Assignment",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: false
+  },
+  {
+    name: "Algorithm_animal-animation_tool",
+    displayName: "Algorithm_animal-animation_tool",
+    description: "애니멀 알고리즘 도구 사용 및 분석",
+    result: "",
+    tech: ["Python"],
+    section: "coursework",
+    priority: 2,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/Algorithm_animal-animation_tool",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: false
+  },
+  {
+    name: "Network-Programming_TCP_and_UDP-Analysis",
+    displayName: "Network-Programming_TCP_and_UDP-Analysis",
+    description: "TCP와 UDP 프로토콜 차이 실험 및 분석",
+    result: "",
+    tech: ["C", "Network"],
+    section: "coursework",
+    priority: 3,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/Network-Programming_TCP_and_UDP-Analysis",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: false
+  },
+  {
+    name: "OpenSource_1_team-project",
+    displayName: "OpenSource_1_team-project",
+    description: "Python 기반 간단한 텍스트 게임 구현",
+    result: "",
+    tech: ["Python"],
+    section: "coursework",
+    priority: 4,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/OpenSource_1_team-project",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: true
+  },
+  {
+    name: "Advanced_Data_Structures_Team6",
+    displayName: "Advanced_Data_Structures_Team6",
+    description: "너구리 게임 코드 분석, 오류 수정, 완성",
+    result: "",
+    tech: ["C"],
+    section: "coursework",
+    priority: 5,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/Advanced_Data_Structures_Team6",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: true
+  },
+  {
+    name: "WebProgramming_team-project",
+    displayName: "WebProgramming_team-project",
+    description: "To-Do List와 중고나라 마켓 기능 구현",
+    result: "",
+    tech: ["JavaScript"],
+    section: "coursework",
+    priority: 6,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/WebProgramming_team-project",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: true
+  },
+  {
+    name: "Computer-Graphics_project_Team1",
+    displayName: "Computer-Graphics_project_Team1",
+    description: "OpenGL을 사용해 3D 집 외부 구현",
+    result: "",
+    tech: ["C++", "OpenGL"],
+    section: "coursework",
+    priority: 7,
+    isPublic: true,
+    url: "https://github.com/jeongiryang/Computer-Graphics_project_Team1",
+    previewImage: "",
+    previewAlt: "",
+    isPrivate: false,
+    isArchived: true
   }
 ];

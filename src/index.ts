@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { renderReadme } from "./renderer";
-import { featuredProjects, profileConfig } from "./projects";
+import { profileConfig, profileProjects } from "./projects";
 import { generateProjectCardsSvg } from "./svg/generateProjectCards";
 
 const ROOT_DIR = resolve(__dirname, "..");
@@ -12,13 +12,13 @@ const PROJECT_CARDS_SVG_PATH = resolve(ROOT_DIR, "assets/generated/project-cards
 async function main(): Promise<void> {
   const lastUpdated = formatKstTimestamp(new Date());
 
-  await generateProjectCardsSvg(featuredProjects, PROJECT_CARDS_SVG_PATH);
+  await generateProjectCardsSvg(profileProjects, PROJECT_CARDS_SVG_PATH);
 
   const readme = await renderReadme({
     templatePath: TEMPLATE_PATH,
     lastUpdated,
     profile: profileConfig,
-    projects: featuredProjects
+    projects: profileProjects
   });
 
   await writeFile(README_PATH, `${readme.trimEnd()}\n`, "utf8");
