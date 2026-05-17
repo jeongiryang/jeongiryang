@@ -1,0 +1,19 @@
+{
+  "name": "jeongiryang-profile-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generated GitHub profile README dashboard for jeongiryang.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "generate": "tsx src/index.ts",
+    "check": "npm run build && npm run generate"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
