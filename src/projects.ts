@@ -10,8 +10,10 @@ export interface ProfileProject {
   priority: number;
   isPublic: boolean;
   url: string;
+  demoUrl?: string;
   previewImage: string;
   previewAlt: string;
+  previewCaption?: string;
   isPrivate: boolean;
   isArchived: boolean;
 }
@@ -45,13 +47,15 @@ export const profileProjects: ProfileProject[] = [
     displayName: "DatabaseLanguage_NodeJS_CWNU-Community",
     description: "Node.js와 PostgreSQL 기반 CWNU Community 게시판",
     result: "회원가입, 로그인, 게시글, 댓글, 좋아요, 페이징",
-    tech: ["JavaScript", "Node.js", "PostgreSQL"],
+    tech: ["JavaScript", "Node.js", "PostgreSQL", "Vercel"],
     section: "completed",
     priority: 1,
     isPublic: true,
     url: "https://github.com/jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community",
-    previewImage: "assets/previews/database-language-cwnu-community.png",
+    demoUrl: "https://cwnu-community-cehv6vpud-eryang-cmds-projects.vercel.app/",
+    previewImage: "assets/previews/database-language-cwnu-community.gif",
     previewAlt: "CWNU Community 게시판 미리보기",
+    previewCaption: "CWNU Community 게시판",
     isPrivate: false,
     isArchived: false
   },
@@ -65,8 +69,10 @@ export const profileProjects: ProfileProject[] = [
     priority: 2,
     isPublic: true,
     url: "https://github.com/jeongiryang/todo-app-mini-project-20222017",
-    previewImage: "assets/previews/todo-app-mini-project.png",
+    demoUrl: "https://todo-app-mini-project-20222017.vercel.app/",
+    previewImage: "assets/previews/todo-app-mini-project.gif",
     previewAlt: "Todo 리스트 미니 프로젝트 미리보기",
+    previewCaption: "Todo 리스트 미니 프로젝트",
     isPrivate: false,
     isArchived: true
   },

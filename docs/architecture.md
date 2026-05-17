@@ -40,10 +40,21 @@ README는 직접 수정하지 않고 TypeScript generator로 생성합니다.
 
 ## Preview 이미지 정책
 
-`previewImage`가 있는 개발 완료 프로젝트는 개별 프로젝트 block 아래에 다음 형태로 렌더링됩니다.
+`previewImage`가 있는 개발 완료 프로젝트는 개별 프로젝트 block 아래에 HTML table 액자 형태로 렌더링됩니다.
 
 ```html
-<img src="assets/previews/todo-app-mini-project.png" alt="Todo 리스트 미니 프로젝트 미리보기" width="100%" />
+<table>
+  <tr>
+    <td>
+      <img src="assets/previews/todo-app-mini-project.gif" alt="Todo 리스트 미니 프로젝트 미리보기" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <sub>Todo 리스트 미니 프로젝트</sub>
+    </td>
+  </tr>
+</table>
 ```
 
 이미지 width는 `100%`로 지정합니다. `previewImage`가 비어 있으면 이미지 태그를 표시하지 않습니다.

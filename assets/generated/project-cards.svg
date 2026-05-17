@@ -33,7 +33,7 @@
     <text class="description" x="24" y="87">Node.js와 PostgreSQL 기반 CWNU Community 게시판</text>
     <text class="label" x="24" y="111">구현 결과</text>
     <text class="detail" x="90" y="111">회원가입, 로그인, 게시글, 댓글, 좋아요,</text>
-    <text class="stack" x="24" y="126">JavaScript / Node.js / PostgreSQL</text>
+    <text class="stack" x="24" y="126">JavaScript / Node.js / PostgreSQL / Vercel</text>
   </g>
   <g transform="translate(494 112)">
     <rect class="card" x="0" y="0" width="426" height="132" rx="8"/>
