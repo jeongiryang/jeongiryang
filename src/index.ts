@@ -1,6 +1,5 @@
 import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { fetchRecentActivity } from "./github";
 import { renderReadme } from "./renderer";
 import { featuredProjects, profileConfig } from "./projects";
 import { generateProjectCardsSvg } from "./svg/generateProjectCards";
@@ -12,7 +11,6 @@ const PROJECT_CARDS_SVG_PATH = resolve(ROOT_DIR, "assets/generated/project-cards
 const PROJECT_CARDS_SVG_README_PATH = "assets/generated/project-cards.svg";
 
 async function main(): Promise<void> {
-  const recentActivity = await fetchRecentActivity();
   const lastUpdated = formatKstTimestamp(new Date());
 
   await generateProjectCardsSvg(featuredProjects, PROJECT_CARDS_SVG_PATH);
@@ -22,7 +20,6 @@ async function main(): Promise<void> {
     lastUpdated,
     profile: profileConfig,
     projects: featuredProjects,
-    recentActivity,
     projectCardsSvgPath: PROJECT_CARDS_SVG_README_PATH
   });
 

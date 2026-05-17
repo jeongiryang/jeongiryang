@@ -1,61 +1,57 @@
 # Profile Dashboard Architecture
 
 이 저장소는 `jeongiryang/jeongiryang` GitHub 프로필 README 전용 저장소입니다.
-README는 직접 손으로 관리하지 않고, TypeScript generator가 로컬 설정 데이터와
-GitHub 활동 데이터 또는 fallback 데이터를 조합해 생성합니다.
+README는 짧은 포트폴리오 화면을 목표로 하며, `README.md`를 직접 관리하지 않고
+TypeScript generator로 재생성합니다.
 
-## 전체 구조
+## 현재 README 구조
 
-- `README.template.md`: README의 전체 배치와 placeholder를 정의합니다.
-- `README.md`: GitHub 프로필 상단에 표시되는 생성 결과물입니다.
-- `src/projects.ts`: 이름, 학년/소개 문구, 기술 스택, 학습 방향, 개발 워크플로우,
-  프로젝트 목록을 관리하는 핵심 설정 파일입니다.
-- `src/github.ts`: `GITHUB_TOKEN`, `GITHUB_USERNAME`을 읽고 GitHub 공개 활동을 가져옵니다.
-  API 호출에 실패하면 한국어 fallback 활동 요약을 반환합니다.
-- `src/renderer.ts`: 프로젝트 상태별로 README 섹션을 렌더링합니다.
-- `src/svg/generateProjectCards.ts`: 외부 이미지 없이 순수 SVG 프로젝트 카드를 생성합니다.
-- `src/index.ts`: 전체 생성 흐름을 실행합니다.
-- `assets/generated/project-cards.svg`: README에서 참조하는 생성 SVG입니다.
-- `.github/workflows/update-profile.yml`: 매일 1회 또는 수동 실행으로 README를 갱신합니다.
+생성되는 README는 다음 순서만 유지합니다.
 
-## README 생성 흐름
+1. Hero
+2. 개발 중인 프로젝트
+3. 개발 완료 프로젝트
+4. 기술 스택
+5. AI-assisted Development Workflow
+6. 자동 갱신 정보
 
-1. `src/index.ts`가 `src/projects.ts`의 `profileConfig`와 `featuredProjects`를 읽습니다.
-2. `src/github.ts`가 GitHub 공개 활동을 가져오거나 fallback 활동 데이터를 만듭니다.
-3. `src/svg/generateProjectCards.ts`가 프로젝트 상태를 기준으로 SVG 카드를 생성합니다.
-4. `src/renderer.ts`가 template placeholder를 한국어 Markdown/HTML 조각으로 치환합니다.
-5. 최종 결과가 `README.md`에 저장됩니다.
+`현재 학습 방향`과 중복되는 `대표 프로젝트` 섹션은 제거했습니다. 프로젝트 정보는
+첫 화면에서 바로 읽히도록 진행 중/완료 table에 집중합니다.
+
+## 주요 파일
+
+- `README.template.md`: 간략형 README의 placeholder 배치입니다.
+- `README.md`: GitHub 프로필에 표시되는 생성 결과물입니다.
+- `src/projects.ts`: 프로필 Hero, 프로젝트 목록, 기술 스택, AI-assisted workflow를 관리합니다.
+- `src/renderer.ts`: 프로젝트 상태별 Markdown table과 자동 갱신 정보를 렌더링합니다.
+- `src/svg/generateProjectCards.ts`: 보조용 SVG 프로젝트 카드를 생성합니다.
+- `assets/generated/project-cards.svg`: README 하단 `<details>` 안에서만 표시되는 보조 시각 자료입니다.
+- `.github/workflows/update-profile.yml`: GitHub Actions 자동 갱신 workflow입니다.
+
+## 생성 흐름
+
+1. `src/index.ts`가 `profileConfig`와 `featuredProjects`를 읽습니다.
+2. `src/svg/generateProjectCards.ts`가 보조 SVG 카드를 생성합니다.
+3. `src/renderer.ts`가 template placeholder를 짧은 Markdown 섹션으로 치환합니다.
+4. 최종 결과가 `README.md`에 저장됩니다.
 
 ## 프로젝트 상태별 렌더링
 
-`featuredProjects`의 `status` 값은 다음 두 가지를 사용합니다.
+`src/projects.ts`의 `status` 값으로 표시 위치를 나눕니다.
 
-- `in_progress`: `현재 작업 중인 프로젝트` 섹션과 SVG의 `Now Building · 진행 중` 영역에 표시됩니다.
-- `completed`: `완료한 프로젝트` 섹션과 SVG의 `Completed · 완료` 영역에 표시됩니다.
+- `in_progress`: `개발 중인 프로젝트` table에 표시됩니다.
+- `completed`: `개발 완료 프로젝트` table에 표시됩니다.
 
-`대표 프로젝트` 섹션은 `priority` 값이 낮은 순서로 상위 프로젝트를 보여줍니다.
-진행 중 프로젝트는 `currentFocus`, 완료 프로젝트는 `result`가 핵심 설명으로 사용됩니다.
+각 프로젝트는 `description`, `stack`, `currentFocus`, `result`를 짧게 유지합니다.
+README table에 들어가는 문장이므로 한 줄 요약을 권장합니다.
 
-## 주요 모듈 역할
+## SVG 카드 정책
 
-- `src/projects.ts`
-  - 학년/역할 문구: `profileConfig.role`
-  - 상단 소개 문구: `profileConfig.direction`, `profileConfig.introduction`
-  - 기술 스택 그룹: `profileConfig.techStackGroups`
-  - 학습 방향: `profileConfig.learningFocus`
-  - 개발 워크플로우: `profileConfig.workflow`
-  - 프로젝트 데이터: `featuredProjects`
+SVG 카드는 README의 중심 UI가 아닙니다. GitHub README에서 자연스럽게 보이는
+Markdown table을 우선 사용하고, SVG는 `<details>` 접기 섹션 안의 보조 자료로만 둡니다.
 
-- `src/renderer.ts`
-  - Hero, 소개, 진행 중 프로젝트, 완료 프로젝트, 대표 프로젝트, 기술 스택,
-    학습 방향, 개발 워크플로우, 최근 활동, 마지막 갱신 섹션을 생성합니다.
+## AI-assisted Workflow 섹션
 
-- `src/svg/generateProjectCards.ts`
-  - 프로젝트명과 기술명은 영어를 유지하고, 상태/분류/설명 라벨은 한국어로 출력합니다.
-  - 텍스트가 카드 밖으로 넘치지 않도록 줄바꿈과 생략 처리를 적용합니다.
-
-## GitHub Actions 자동화
-
-워크플로우는 `workflow_dispatch`와 `schedule`로 실행됩니다.
-`npm ci`, `npm run check`를 실행한 뒤 `README.md`와 `assets/generated/project-cards.svg`가
-변경된 경우에만 커밋하고 push합니다. 변경사항이 없으면 커밋하지 않아 반복 실행을 피합니다.
+이 섹션은 Codex를 활용한 작업 흐름을 짧게 설명합니다. 핵심은 요구사항 분해,
+구현, 리팩터링, 테스트, 문서화, PR 기반 검증 루프를 빠르게 반복하는 방식입니다.
+과장된 자기소개보다 실제 개발 프로세스가 보이도록 유지합니다.
