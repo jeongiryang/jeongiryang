@@ -83,7 +83,7 @@ function renderCompletedProjectBlock(project: ProfileProject, index: number): st
   ];
 
   if (project.demoUrl) {
-    lines.push(`#### [사이트 바로가기 ↗](${project.demoUrl})`, "");
+    lines.push(`#### [사이트 바로가기 →](${project.demoUrl})`, "");
   }
 
   lines.push(

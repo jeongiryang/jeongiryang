@@ -1,7 +1,7 @@
 <!--
 이 README는 npm run generate로 자동 생성됩니다.
 README.template.md와 src/projects.ts를 수정한 뒤 README.md를 다시 생성합니다.
-마지막 갱신: 2026-05-31 04:42 KST
+마지막 갱신: 2026-05-31 10:27 KST
 -->
 
 <div align="center">
@@ -31,7 +31,7 @@ Codex와 GitHub 기반 워크플로우로<br />
 
 ### 1. [DatabaseLanguage_NodeJS_CWNU-Community](https://github.com/jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community)
 
-#### [사이트 바로가기 ↗](https://cwnu-community-cehv6vpud-eryang-cmds-projects.vercel.app/)
+#### [사이트 바로가기 →](https://cwnu-community-cehv6vpud-eryang-cmds-projects.vercel.app/)
 
 | 요약 | 기술 |
 |---|---|
@@ -56,7 +56,7 @@ Codex와 GitHub 기반 워크플로우로<br />
 
 ### 2. [todo-app-mini-project-20222017](https://github.com/jeongiryang/todo-app-mini-project-20222017)
 
-#### [사이트 바로가기 ↗](https://todo-app-mini-project-20222017.vercel.app/)
+#### [사이트 바로가기 →](https://todo-app-mini-project-20222017.vercel.app/)
 
 | 요약 | 기술 |
 |---|---|
@@ -83,7 +83,7 @@ Codex와 GitHub 기반 워크플로우로<br />
 |---|---|---|
 | [cwnu-campus-hub](https://github.com/jeongiryang/cwnu-campus-hub) | 창원대학교 생활 편의 기능을 모은 캠퍼스 허브 | JavaScript, React, Vite |
 | [3am-computer-science-mystery-room](https://github.com/jeongiryang/3am-computer-science-mystery-room) | Codex-assisted workflow로 제작 중인 Godot 기반 2D 인터랙티브 게임 | Godot, GDScript |
-| SoftwareEngineering_team15_project_-Smart-Edu-Platform | 개인화 학습 관리 앱 팀 프로젝트 | React Native, Expo |
+| [SoftwareEngineering_team15_project_-Smart-Edu-Platform](https://github.com/jeongiryang/SoftwareEngineering_team15_project_-Smart-Edu-Platform) | 개인화 학습 관리 앱 팀 프로젝트 | React Native, Expo |
 | [2026-barrier-free-tour-data-app](https://github.com/jeongiryang/2026-barrier-free-tour-data-app) | 사회적 약자를 위한 경상남도 맞춤형 관광 경로 안내 서비스 | Web/App, Tourism Data |
 
 ## 완료한 과제

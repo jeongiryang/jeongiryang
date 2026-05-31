@@ -114,11 +114,11 @@ export const profileProjects: ProfileProject[] = [
     tech: ["React Native", "Expo"],
     section: "in_progress",
     priority: 3,
-    isPublic: false,
-    url: "",
+    isPublic: true,
+    url: "https://github.com/jeongiryang/SoftwareEngineering_team15_project_-Smart-Edu-Platform",
     previewImage: "",
     previewAlt: "",
-    isPrivate: true,
+    isPrivate: false,
     isArchived: false
   },
   {
