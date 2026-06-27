@@ -1,7 +1,7 @@
 <!--
 이 README는 npm run generate로 자동 생성됩니다.
 README.template.md와 src/projects.ts를 수정한 뒤 README.md를 다시 생성합니다.
-마지막 갱신: 2026-06-27 05:11 KST
+마지막 갱신: 2026-06-28 04:46 KST
 -->
 
 <div align="center">
