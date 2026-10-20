@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="290" viewBox="0 0 600 290" role="img" aria-labelledby="source-title source-description">
   <title id="source-title">Repository code size</title>
-  <desc id="source-description">WAVE: 76754 code lines at f7b196e; CBT OMR: 1090 code lines at 3b749aa; Sagaksagak: 70668 code lines at 389d853; CWNU Community: 11379 code lines at b3b78fd; Smart Portal: 3704 code lines at 0182723; OpenGL House: 1490 code lines at c345aa6; DFS Animation: 422 code lines at ebd0a9a</desc>
+  <desc id="source-description">WAVE: 76754 code lines at 5b27317; CBT OMR: 1090 code lines at 3b749aa; Sagaksagak: 70668 code lines at 389d853; CWNU Community: 11379 code lines at b3b78fd; Smart Portal: 3704 code lines at 0182723; OpenGL House: 1490 code lines at c345aa6; DFS Animation: 422 code lines at ebd0a9a</desc>
   <rect width="600" height="290" rx="12" fill="#1a1b27"/>
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
   <text x="24" y="30" fill="#c0caf5" font-size="18" font-weight="600">Repository code</text>

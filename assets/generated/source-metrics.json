@@ -5,7 +5,7 @@
     {
       "repo": "jeongiryang/wave-barrier-free-gyeongnam",
       "name": "WAVE",
-      "head": "f7b196e431d9fb108d9179bded9c09ab24191315",
+      "head": "5b27317ebd316041beec515ec89387e72473e253",
       "code": 76754,
       "comment": 5180,
       "blank": 4880,
@@ -234,5 +234,5 @@
       ]
     }
   ],
-  "measuredAt": "2026-10-20T05:24:10.015Z"
+  "measuredAt": "2026-10-20T05:33:19.861Z"
 }
