@@ -51,7 +51,7 @@
     {
       "repo": "jeongiryang/cbt-omr-tester",
       "name": "CBT OMR",
-      "head": "753eaa4f2998baeda861d8b0b2c8d60d699d97c4",
+      "head": "3b749aa0394fc34f5368c1106f6f2e4ef2a47ff6",
       "code": 1090,
       "comment": 0,
       "blank": 83,
@@ -69,7 +69,7 @@
     {
       "repo": "jeongiryang/SoftwareEngineering_team15_project_-Smart-Edu-Platform",
       "name": "Sagaksagak",
-      "head": "adf02fe48523f2abad368bc91b1e423a018a5cc6",
+      "head": "389d853a480d7bc6548bfda759756fb4fa5b51ef",
       "code": 70668,
       "comment": 249,
       "blank": 7192,
@@ -108,7 +108,7 @@
     {
       "repo": "jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community",
       "name": "CWNU Community",
-      "head": "cd24a9010b4bb287ea2b405da4364abc942b7166",
+      "head": "b3b78fd836be0fdf1da991df3aba227dc752d5fa",
       "code": 11379,
       "comment": 41,
       "blank": 1967,
@@ -154,7 +154,7 @@
     {
       "repo": "jeongiryang/todo-app-mini-project-20222017",
       "name": "Smart Portal",
-      "head": "1981f21d2421c59747ca5b0136aa840f9fedf303",
+      "head": "0182723df955fe644bdc02623ea0f7a5e235951c",
       "code": 3704,
       "comment": 2,
       "blank": 61,
@@ -193,7 +193,7 @@
     {
       "repo": "jeongiryang/Computer-Graphics_project_Team1",
       "name": "OpenGL House",
-      "head": "cb2db536cdcf90f49606668a1c7396836be9def3",
+      "head": "c345aa6582702a921db2b3b4454d2c6a173d865d",
       "code": 1490,
       "comment": 0,
       "blank": 488,
@@ -218,7 +218,7 @@
     {
       "repo": "jeongiryang/AlgorithmAnimation_DFS-AnimalScript_Assignment",
       "name": "DFS Animation",
-      "head": "03846bb17bfd32e9f05ad6fb1a2ca7f2275e3aba",
+      "head": "ebd0a9adb6ea92ed59da3185aaf478cca48c5f1b",
       "code": 422,
       "comment": 4,
       "blank": 85,
@@ -234,5 +234,5 @@
       ]
     }
   ],
-  "measuredAt": "2026-10-20T04:45:21.574Z"
+  "measuredAt": "2026-10-20T05:24:10.015Z"
 }
