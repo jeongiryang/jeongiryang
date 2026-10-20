@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "generate": "tsx src/index.ts",
-    "check": "npm run build && npm run generate"
+    "collect": "tsx src/index.ts --collect",
+    "check": "npm run build && npm run generate && node scripts/verify.mjs",
+    "test": "tsx --test tests/*.test.ts"
   },
   "engines": {
     "node": ">=20"
