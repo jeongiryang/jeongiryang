@@ -13,13 +13,13 @@ export const profileConfig = {
 };
 export type ProfileConfig = typeof profileConfig;
 const project=(name:string,displayName:string,description:string,result:string,tech:string[],section:ProjectSection,priority:number,options:Partial<ProfileProject>={}):ProfileProject=>({
-  name,displayName,description,result,tech,section,priority,isPublic:true,isPrivate:false,isArchived:false,
+  name,displayName,description,result,tech,section,priority,isPublic:true,isPrivate:false,isArchived:section==="assignment",
   url:`https://github.com/jeongiryang/${name}`,previewImage:"",previewAlt:"",statusLabel:"과제 완료",role:"수업 프로젝트",...options
 });
 // 공개된 본인 소유 원본만 등록합니다. 참고용 포크와 비공개 작업은 제외합니다.
 export const profileProjects:ProfileProject[]=[
   project("wave-barrier-free-gyeongnam","WAVE","경남 관광·공식 편의정보를 연결한 여행 일정 서비스","여행지 탐색, 날짜별 일정·지도, 대화형 일정 편집과 저장·공유를 제공합니다.",["TypeScript","React","Vite / Vinext","Neon / Vercel"],"completed",0,
-    {statusLabel:"공개 서비스 · 주요 기능 구현",role:"관광 데이터 활용 프로젝트",demoUrl:"https://wave-barrier-free-gyeongnam.vercel.app/",previewImage:"assets/previews/wave-live.gif",previewAlt:"WAVE 실제 배포 화면: 홈, 여행 설계, 관광지 상세와 편의정보",previewCaption:"실제 배포 화면 · 홈 → 여행 설계 → 관광지 상세·편의정보 · 2026.10.20 촬영",measureSource:true,shortName:"WAVE"}),
+    {statusLabel:"공개 서비스",role:"관광 데이터 활용 프로젝트",isArchived:true,demoUrl:"https://wave-barrier-free-gyeongnam.vercel.app/",previewImage:"assets/previews/wave-live.gif",previewAlt:"WAVE 실제 배포 화면: 홈, 여행 설계, 관광지 상세와 편의정보",previewCaption:"실제 배포 화면 · 홈 → 여행 설계 → 관광지 상세·편의정보 · 2026.10.20 촬영",measureSource:true,shortName:"WAVE"}),
   project("cbt-omr-tester","CBT OMR Tester","설치 없이 브라우저에서 사용하는 OMR · 자동 채점 도구","시험 프리셋, 타이머, 정답 비교와 합격·과락 판정을 한 화면에 담았습니다.",["HTML","CSS","JavaScript"],"completed",1,
     {statusLabel:"완성",role:"개인 프로젝트",demoUrl:"https://cbt-omr-tester.vercel.app/",previewImage:"assets/previews/cbt-omr-tester-live.gif",previewAlt:"CBT OMR Tester 실제 배포 화면: OMR 마킹과 자동 채점 결과",previewCaption:"실제 배포 화면 · OMR 마킹 → 자동 채점 · 2026.10.20 촬영",measureSource:true,shortName:"CBT OMR"}),
   project("SoftwareEngineering_team15_project_-Smart-Edu-Platform","사각사각","학습 자료와 노트·퀴즈를 연결하는 학습 관리 앱","PDF 기반 학습 지원과 실시간 스터디 기능을 구현하고 최종 제출을 마쳤습니다.",["Expo","React Native Web","Express","PostgreSQL / Prisma"],"completed",2,

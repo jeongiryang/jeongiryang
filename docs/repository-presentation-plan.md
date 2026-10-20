@@ -6,7 +6,30 @@
 
 대표작은 현재 사용자 선택에 따라 **W.A.V.E를 가장 먼저** 보여 준다. 릴리스·최종 보고서·소스·결과물을 함께 확인하고, `archived`는 보관 상태로 따로 표시한다. 공개 기능의 구현과 별도 운영 검증·공모전 제출·수상 여부는 구분한다.
 
-완성작 README의 상단 소개·기술 배지·결과·실행법을 정리했다. 웹 대표작 5개에는 아래 촬영 GIF를 연결하고, 긴 기존 보고서와 개발 기록은 보존했다. 반영에는 저장소별 PR을 사용하며 보관된 저장소는 수정 후 원래 아카이브 상태로 복원한다. WAVE는 README PR을 준비했으나 기존 의존성 보안 검사로 병합이 대기 중이다.
+완성작 15개의 README에 상단 소개·기술 배지·결과·실행법을 정리했다. 웹 대표작 5개에는 아래 촬영 GIF를 연결하고, 긴 기존 보고서와 개발 기록은 보존했다. 저장소별 PR로 반영했으며, 최신 사용자 요청에 따라 WAVE와 기존 학교 과제 13개를 공개 아카이브로 전환했다.
+
+WAVE는 [문서 PR #765](https://github.com/jeongiryang/wave-barrier-free-gyeongnam/pull/765)에서 `README.md`와 `docs/media/demo.gif`만 변경했다. 운영 중인 앱 소스·의존성·배포 설정은 그대로 두고 문서 커밋에 `[skip ci]`를 사용해 새 운영 배포를 실행하지 않았다. 전후 운영 커밋은 `f7b196e431d9fb108d9179bded9c09ab24191315`, GitHub production deployment ID는 `6806770136`으로 동일했다. 기존 보안 검사 실패를 해결하거나 통과한 것으로 표시하지 않는다.
+
+## 공개 아카이브 목록
+
+2026-10-20 요청에 따라 WAVE와 3학년 1학기까지의 학교 과제 13개를 공개 아카이브로 보관한다. README 정리는 반영했고 서비스·원본 소스·보고서는 유지한다.
+
+| 저장소 | 구분 |
+|---|---|
+| [WAVE](https://github.com/jeongiryang/wave-barrier-free-gyeongnam) | 별도 지정 서비스 |
+| [사각사각](https://github.com/jeongiryang/SoftwareEngineering_team15_project_-Smart-Edu-Platform) | 소프트웨어공학 |
+| [CWNU Community](https://github.com/jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community) | 데이터베이스 |
+| [CWNU Smart Portal](https://github.com/jeongiryang/todo-app-mini-project-20222017) | 학교 웹 과제 |
+| [OpenGL 3D House](https://github.com/jeongiryang/Computer-Graphics_project_Team1) | 컴퓨터그래픽스 |
+| [DFS Animation](https://github.com/jeongiryang/AlgorithmAnimation_DFS-AnimalScript_Assignment) | 알고리즘 |
+| [TCP / UDP](https://github.com/jeongiryang/Network-Programming_TCP_and_UDP-Analysis) | 네트워크프로그래밍 |
+| [너구리 게임](https://github.com/jeongiryang/Advanced_Data_Structures_Team6) | 고급자료구조 |
+| [Python 던전 게임](https://github.com/jeongiryang/OpenSource_1_team-project) | 오픈소스 |
+| [ToDo · 중고 마켓](https://github.com/jeongiryang/WebProgramming_team-project) | 웹프로그래밍 |
+| [Checksum Generator](https://github.com/jeongiryang/Network-Programming_Checksum-Generator) | 네트워크프로그래밍 |
+| [MariaDB SQL](https://github.com/jeongiryang/DatabaseLanguage_SQL_Assignment) | 데이터베이스 |
+| [Animal 1000 Points](https://github.com/jeongiryang/Algorithm_animal-animation_tool) | 알고리즘 |
+| [Hadoop / HDFS](https://github.com/jeongiryang/BigData_Kubernetes_Hadoop_HDFS_Assignment) | 빅데이터 |
 
 ## 먼저 보여 줄 5개
 
