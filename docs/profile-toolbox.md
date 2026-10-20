@@ -1,40 +1,42 @@
 # 프로필 도구 상자
 
-기준일: **2026-10-20 KST**. 25개 후보의 공식 저장소·설정과 주요 이미지 endpoint 응답을 조사하고, 검색·블로그·YouTube 자료를 대조했다. 적용은 완성 결과물을 먼저 보여 주는 제작실 구성에 맞췄다. 별 수는 누적 인기 지표이며 최근 급상승 순위나 정상 동작의 보증이 아니다.
+기준일: **2026-10-20 KST**. 프로필 도구 25개와 HTML 변환·스타일 라이브러리 2개, 총 27개를 검토했다. 공식 저장소·설정·이미지 endpoint와 검색·블로그·YouTube 자료를 대조했다. 별 수는 이날 확인한 누적 수다.
 
-아래 **★ 16개는 jeongiryang 계정에서 실제 star를 확인한 저장소**다. star는 참고·보류 후보에도 남겼으며 실제 사용 여부와 구분한다.
+아래 **★ 18개는 jeongiryang 계정에서 star한 저장소**다. 실제 사용·참고·보류로 나누어 기록한다.
 
 ## 실제 사용
 
 | 도구 | 현재 사용 방식 | 확인한 인기·조건 |
 |---|---|---|
-| ★ [GitHub Stats Action](https://github.com/stats-organization/github-readme-stats-action) | 공개 GitHub stats를 저장소 내부 light/dark SVG로 생성 | 317 stars · 2026-10-19 push · 기본 `GITHUB_TOKEN` · MIT |
+| ★ [Capsule Render](https://github.com/kyechan99/capsule-render) | 공식 `waving` 배너를 SVG로 받아 프로필 상단에 사용 | 1,843 stars · 2026-10-16 push · MIT |
+| ★ [GitHub Stats Action](https://github.com/stats-organization/github-readme-stats-action) | 기본·tokyonight 테마 stats를 저장소 내부 light/dark SVG로 생성 | 317 stars · 2026-10-19 push · 기본 `GITHUB_TOKEN` · MIT |
 | ★ [GitHub Stats Extended](https://github.com/stats-organization/github-stats-extended) | 위 Action의 stats core 2.2.1 | 1,529 stars · 2026-10-17 push · MIT |
 | ★ [Platane/snk](https://github.com/Platane/snk) | 실제 기여 달력을 SVG-only Action으로 시각화 | 6,140 stars · 2026-10-18 push · 기본 token · 명시 라이선스 미확인 |
 | ★ [AlDanial/cloc](https://github.com/AlDanial/cloc) | 선정한 공개 원본 7개의 현재 HEAD 소스 규모 측정 | 23,607 stars · 2026-09-20 push · 공식 2.10 Perl 파일 · GPL-2.0 및 내장 모듈별 고지 |
-| ★ [Shields](https://github.com/badges/shields) | HTML 제작실 바로가기 정적 배지 1개 | 27,277 stars · 2026-10-18 push · 추가 계정 불필요 · MIT / Apache-2.0 |
+| ★ [Shields](https://github.com/badges/shields) | Portfolio 바로가기 배지 | 27,277 stars · 2026-10-18 push · 추가 계정 불필요 · MIT / Apache-2.0 |
 | ★ [Skill Icons](https://github.com/tandpfun/skill-icons) | 실제 사용 기술 아이콘 한 줄 | 13,294 stars · 2026-02-27 push · 추가 계정 불필요 · MIT |
+| ★ [markdown-it](https://github.com/markdown-it/markdown-it) | 같은 README를 HTML로 변환. npm 15.0.3 고정 | 21,989 stars · CommonMark 기반 파서 · MIT |
+| ★ [github-markdown-css](https://github.com/sindresorhus/github-markdown-css) | HTML 사이트의 GitHub Markdown 기본 스타일. npm 5.9.0 고정 | 8,942 stars · 기본 CSS의 light/dark 자동 전환 · MIT |
+
+README는 `Projects`·`Stack`·`GitHub` 순서로 구성하고, WAVE를 먼저 보여 준다. HTML 포트폴리오는 같은 README를 markdown-it으로 변환한 뒤 github-markdown-css의 기본 테마를 적용한다. CSS와 원본 MIT 라이선스를 배포 파일에 함께 포함한다. Capsule 배너의 공식 URL은 [출처 파일](../assets/generated/capsule-header-source.json)에 기록한다.
 
 유명 원본 [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)는 79,846 stars지만 유지보수 중단과 후속 프로젝트를 README에서 안내한다. 새 Action/core는 별 수가 더 적어도 **원본이 안내한 후속 경로**여서 선택했다. 공유 통계 URL을 그대로 붙이지 않고 고정 버전으로 SVG를 생성한다.
 
 stats Action은 `2c498845f71017821efaad14293ebc736156ef21`, snake SVG-only Action은 `d8f6715049803e982ee5ff501b6b9b7d5deeb09b`로 고정했다. cloc는 공식 v2.10 파일과 SHA256을 확인한다. 실제 설정은 [워크플로](../.github/workflows/update-profile.yml)를 따른다. 라이선스와 실행 전제는 버전 변경 때 다시 확인한다. snk를 MIT로 표기하거나 소스를 복사해 재배포할 권리가 확인됐다고 주장하지 않는다.
 
-stats·snake·코드 규모는 서로 다른 정보를 보여 준다. 기여 수는 커밋 수와 같지 않으며, 코드 규모는 팀 전체를 포함한 저장소 HEAD의 선택 소스 줄 수다. **개인 작성량·코딩 시간으로 소개하지 않는다.** [집계와 제외 기준](setup.md#코드-규모)
+통계와 소스 규모의 [집계·제외 기준](setup.md#코드-규모)은 설정 문서에서 관리한다.
 
 ## 참고할 도구
 
 | 후보 | 남겨 둔 용도 |
 |---|---|
 | ★ [awesome-github-profile-readme](https://github.com/abhisheknaiidu/awesome-github-profile-readme) | 다양한 실제 프로필의 구성·밀도를 비교하는 모음 |
-| ★ [readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg) | 타이핑 헤더 대안. 현재 정적 헤더·snake 조합에는 추가하지 않음 |
-| ★ [capsule-render](https://github.com/kyechan99/capsule-render) | 1,843 stars, 2026-10-16 push. 배너를 바꿀 때 우선 검토할 대안 |
+| ★ [readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg) | 타이핑 헤더 대안. 현재 Capsule 배너와 snake를 사용 |
 | ★ [Devicon](https://github.com/devicons/devicon) | 개별 기술 SVG가 필요할 때. 현재는 Skill Icons를 사용 |
 | ★ [Simple Icons](https://github.com/simple-icons/simple-icons) | 단색 브랜드 아이콘 대안. CC0와 개별 브랜드 지침 확인 필요 |
 | [isometric-contributions](https://github.com/jasonlong/isometric-contributions) | 시각 표현 참고. 방문자 브라우저 확장 기능이어서 README 생성 자산과 다름 |
 | [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) | 글·프로젝트 상세가 커질 때 Jekyll 구조 참고 |
 | ★ [modern-resume-theme](https://github.com/sproogen/modern-resume-theme) | 이력서형 정보 구조 참고. 마지막 push가 2024-06-15라 신규 설치 전 의존성 재검토 |
-
-맞춤 제작실 헤더는 자체 SVG로 구현했다. Capsule이나 typing 헤더를 겹치기보다 결과 화면을 주역으로 두고, 자유로운 HTML/CSS 표현은 [Pages 제작실](https://jeongiryang.github.io/jeongiryang/) 바로가기로 연결한다. 현재 사이트는 별도 Jekyll·React 템플릿을 설치하지 않고 같은 데이터에서 정적 HTML로 생성한다.
 
 ## 이번에는 보류
 

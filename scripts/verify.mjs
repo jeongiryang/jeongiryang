@@ -35,6 +35,7 @@ for(const record of snapshot.projects){
 for(const file of ['README.md','site/index.html']){
   const text=await readFile(resolve(root,file),'utf8');
   assert.doesNotMatch(text,/\{\{[A-Z_]+\}\}|2026-barrier-free-tour-data-app|cwnu-campus-hub|3am-computer-science-mystery-room|gh[pousr]_[A-Za-z0-9]{20,}/);
+  assert.doesNotMatch(text,/기여 수와 커밋 수|개인 작성량이나 작업 시간|HEAD를 cloc으로|작게 만들고|의 제작실|v\d+\.\d+\.\d+/);
   const folder=file.startsWith('site/')?resolve(root,'site'):root;
   for(const match of text.matchAll(/(?:src|srcset)="([^"]+)"/g)){
     if(/^https?:/.test(match[1]))continue;
@@ -43,11 +44,16 @@ for(const file of ['README.md','site/index.html']){
     await access(target);
   }
 }
-for(const name of ['workshop','github-stats','source-scale','contribution-snake']){
+for(const name of ['github-stats','source-scale','contribution-snake']){
   for(const theme of ['light','dark']){
     const text=await readFile(resolve(root,`assets/generated/${name}-${theme}.svg`),'utf8');
     assert.match(text,/<svg\b/);
     assert.doesNotMatch(text,/Something went wrong|RATE_LIMITED|<script\b/i);
   }
 }
-console.log(`Verified public allowlist, ${allowed.size} source measurements, README/site assets and eight SVGs.`);
+const header=await readFile(resolve(root,'assets/generated/capsule-header.svg'),'utf8');
+assert.match(header,/<svg\b/);
+assert.doesNotMatch(header,/<script\b/i);
+await access(resolve(root,'site/assets/vendor/github-markdown.css'));
+await access(resolve(root,'site/assets/vendor/github-markdown-css-LICENSE'));
+console.log(`Verified public allowlist, ${allowed.size} source measurements, README/site assets and seven SVGs.`);

@@ -356,33 +356,29 @@ async function run(command: string, args: string[], options: { cwd?: string; inp
 
 function renderSourceScale(snapshot: SourceMetricsSnapshot, theme: "light" | "dark"): string {
   const palette = theme === "light"
-    ? { background: "#f2f7f3", ink: "#142d26", muted: "#557066", track: "#dce9df", bar: "#237451", rule: "#ccddd0" }
-    : { background: "#0e201b", ink: "#ecf5ee", muted: "#a8c2b2", track: "#213f2e", bar: "#91dfb2", rule: "#2a493b" };
-  const height = 310 + Math.max(0, snapshot.projects.length - 6) * 30;
+    ? { background: "#ffffff", ink: "#1f2328", muted: "#59636e", track: "#eaeef2", bar: "#0969da", rule: "#d1d9e0" }
+    : { background: "#1a1b27", ink: "#c0caf5", muted: "#9aa5ce", track: "#292e42", bar: "#7aa2f7", rule: "#414868" };
+  const height = 80 + snapshot.projects.length * 30;
   const maximum = Math.max(1, ...snapshot.projects.map((project) => project.code));
   const rows = snapshot.projects.map((project, index) => {
-    const y = 75 + index * 30;
+    const y = 64 + index * 30;
     const width = Math.round((project.code / maximum) * 342 * 10) / 10;
     return `  <text x="24" y="${y}" fill="${palette.ink}" font-size="12">${escapeXml(project.name)}</text>
   <rect x="160" y="${y - 9}" width="342" height="9" rx="4.5" fill="${palette.track}"/>
   <rect x="160" y="${y - 9}" width="${width}" height="9" rx="4.5" fill="${palette.bar}"/>
   <text x="576" y="${y}" text-anchor="end" fill="${palette.ink}" font-size="12">${project.code.toLocaleString("en-US")}</text>`;
   }).join("\n");
-  const footer = height - 50;
+  const footer = height - 15;
   const description = snapshot.projects.map((project) => `${project.name}: ${project.code} code lines at ${project.head.slice(0, 7)}`).join("; ");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="${height}" viewBox="0 0 600 ${height}" role="img" aria-labelledby="source-title source-description">
-  <title id="source-title">Public repository HEAD source code size</title>
-  <desc id="source-description">${escapeXml(description)}. Code size is not personally authored lines. Source extensions only; vendored, generated, minified and build output files, and files over 2 MiB are excluded.</desc>
+  <title id="source-title">Repository code size</title>
+  <desc id="source-description">${escapeXml(description)}</desc>
   <rect width="600" height="${height}" rx="12" fill="${palette.background}"/>
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
-  <text x="24" y="26" fill="${palette.ink}" font-size="15" font-weight="600" letter-spacing="1">PUBLIC HEAD CODE SIZE</text>
-  <text x="24" y="45" fill="${palette.muted}" font-size="11">Code lines at current HEAD · not personally authored lines</text>
+  <text x="24" y="30" fill="${palette.ink}" font-size="18" font-weight="600">Repository code</text>
 ${rows}
-  <rect x="24" y="${footer - 16}" width="552" height="1" fill="${palette.rule}"/>
-  <text x="24" y="${footer}" fill="${palette.muted}" font-size="11">Measured ${snapshot.measuredAt.slice(0, 10)} · cloc ${CLOC_VERSION}</text>
-  <text x="24" y="${footer + 18}" fill="${palette.muted}" font-size="11">Excludes vendor, generated, minified files and build outputs.</text>
-  <text x="24" y="${footer + 35}" fill="${palette.muted}" font-size="11">Selected source extensions only · files up to 2 MiB.</text>
+  <text x="576" y="${footer}" text-anchor="end" fill="${palette.muted}" font-size="11">${snapshot.measuredAt.slice(0, 10)}</text>
   </g>
 </svg>
 `;

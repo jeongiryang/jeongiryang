@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="340" viewBox="0 0 600 340" role="img" aria-labelledby="source-title source-description">
-  <title id="source-title">Public repository HEAD source code size</title>
-  <desc id="source-description">WAVE: 76754 code lines at f7b196e; CBT OMR: 1090 code lines at 753eaa4; Sagaksagak: 70668 code lines at adf02fe; CWNU Community: 11379 code lines at cd24a90; Smart Portal: 3704 code lines at 1981f21; OpenGL House: 1490 code lines at cb2db53; DFS Animation: 422 code lines at 03846bb. Code size is not personally authored lines. Source extensions only; vendored, generated, minified and build output files, and files over 2 MiB are excluded.</desc>
-  <rect width="600" height="340" rx="12" fill="#f2f7f3"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="290" viewBox="0 0 600 290" role="img" aria-labelledby="source-title source-description">
+  <title id="source-title">Repository code size</title>
+  <desc id="source-description">WAVE: 76754 code lines at f7b196e; CBT OMR: 1090 code lines at 753eaa4; Sagaksagak: 70668 code lines at adf02fe; CWNU Community: 11379 code lines at cd24a90; Smart Portal: 3704 code lines at 1981f21; OpenGL House: 1490 code lines at cb2db53; DFS Animation: 422 code lines at 03846bb</desc>
+  <rect width="600" height="290" rx="12" fill="#ffffff"/>
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
-  <text x="24" y="26" fill="#142d26" font-size="15" font-weight="600" letter-spacing="1">PUBLIC HEAD CODE SIZE</text>
-  <text x="24" y="45" fill="#557066" font-size="11">Code lines at current HEAD · not personally authored lines</text>
-  <text x="24" y="75" fill="#142d26" font-size="12">WAVE</text>
-  <rect x="160" y="66" width="342" height="9" rx="4.5" fill="#dce9df"/>
-  <rect x="160" y="66" width="342" height="9" rx="4.5" fill="#237451"/>
-  <text x="576" y="75" text-anchor="end" fill="#142d26" font-size="12">76,754</text>
-  <text x="24" y="105" fill="#142d26" font-size="12">CBT OMR</text>
-  <rect x="160" y="96" width="342" height="9" rx="4.5" fill="#dce9df"/>
-  <rect x="160" y="96" width="4.9" height="9" rx="4.5" fill="#237451"/>
-  <text x="576" y="105" text-anchor="end" fill="#142d26" font-size="12">1,090</text>
-  <text x="24" y="135" fill="#142d26" font-size="12">Sagaksagak</text>
-  <rect x="160" y="126" width="342" height="9" rx="4.5" fill="#dce9df"/>
-  <rect x="160" y="126" width="314.9" height="9" rx="4.5" fill="#237451"/>
-  <text x="576" y="135" text-anchor="end" fill="#142d26" font-size="12">70,668</text>
-  <text x="24" y="165" fill="#142d26" font-size="12">CWNU Community</text>
-  <rect x="160" y="156" width="342" height="9" rx="4.5" fill="#dce9df"/>
-  <rect x="160" y="156" width="50.7" height="9" rx="4.5" fill="#237451"/>
-  <text x="576" y="165" text-anchor="end" fill="#142d26" font-size="12">11,379</text>
-  <text x="24" y="195" fill="#142d26" font-size="12">Smart Portal</text>
-  <rect x="160" y="186" width="342" height="9" rx="4.5" fill="#dce9df"/>
-  <rect x="160" y="186" width="16.5" height="9" rx="4.5" fill="#237451"/>
-  <text x="576" y="195" text-anchor="end" fill="#142d26" font-size="12">3,704</text>
-  <text x="24" y="225" fill="#142d26" font-size="12">OpenGL House</text>
-  <rect x="160" y="216" width="342" height="9" rx="4.5" fill="#dce9df"/>
-  <rect x="160" y="216" width="6.6" height="9" rx="4.5" fill="#237451"/>
-  <text x="576" y="225" text-anchor="end" fill="#142d26" font-size="12">1,490</text>
-  <text x="24" y="255" fill="#142d26" font-size="12">DFS Animation</text>
-  <rect x="160" y="246" width="342" height="9" rx="4.5" fill="#dce9df"/>
-  <rect x="160" y="246" width="1.9" height="9" rx="4.5" fill="#237451"/>
-  <text x="576" y="255" text-anchor="end" fill="#142d26" font-size="12">422</text>
-  <rect x="24" y="274" width="552" height="1" fill="#ccddd0"/>
-  <text x="24" y="290" fill="#557066" font-size="11">Measured 2026-10-20 · cloc 2.10</text>
-  <text x="24" y="308" fill="#557066" font-size="11">Excludes vendor, generated, minified files and build outputs.</text>
-  <text x="24" y="325" fill="#557066" font-size="11">Selected source extensions only · files up to 2 MiB.</text>
+  <text x="24" y="30" fill="#1f2328" font-size="18" font-weight="600">Repository code</text>
+  <text x="24" y="64" fill="#1f2328" font-size="12">WAVE</text>
+  <rect x="160" y="55" width="342" height="9" rx="4.5" fill="#eaeef2"/>
+  <rect x="160" y="55" width="342" height="9" rx="4.5" fill="#0969da"/>
+  <text x="576" y="64" text-anchor="end" fill="#1f2328" font-size="12">76,754</text>
+  <text x="24" y="94" fill="#1f2328" font-size="12">CBT OMR</text>
+  <rect x="160" y="85" width="342" height="9" rx="4.5" fill="#eaeef2"/>
+  <rect x="160" y="85" width="4.9" height="9" rx="4.5" fill="#0969da"/>
+  <text x="576" y="94" text-anchor="end" fill="#1f2328" font-size="12">1,090</text>
+  <text x="24" y="124" fill="#1f2328" font-size="12">Sagaksagak</text>
+  <rect x="160" y="115" width="342" height="9" rx="4.5" fill="#eaeef2"/>
+  <rect x="160" y="115" width="314.9" height="9" rx="4.5" fill="#0969da"/>
+  <text x="576" y="124" text-anchor="end" fill="#1f2328" font-size="12">70,668</text>
+  <text x="24" y="154" fill="#1f2328" font-size="12">CWNU Community</text>
+  <rect x="160" y="145" width="342" height="9" rx="4.5" fill="#eaeef2"/>
+  <rect x="160" y="145" width="50.7" height="9" rx="4.5" fill="#0969da"/>
+  <text x="576" y="154" text-anchor="end" fill="#1f2328" font-size="12">11,379</text>
+  <text x="24" y="184" fill="#1f2328" font-size="12">Smart Portal</text>
+  <rect x="160" y="175" width="342" height="9" rx="4.5" fill="#eaeef2"/>
+  <rect x="160" y="175" width="16.5" height="9" rx="4.5" fill="#0969da"/>
+  <text x="576" y="184" text-anchor="end" fill="#1f2328" font-size="12">3,704</text>
+  <text x="24" y="214" fill="#1f2328" font-size="12">OpenGL House</text>
+  <rect x="160" y="205" width="342" height="9" rx="4.5" fill="#eaeef2"/>
+  <rect x="160" y="205" width="6.6" height="9" rx="4.5" fill="#0969da"/>
+  <text x="576" y="214" text-anchor="end" fill="#1f2328" font-size="12">1,490</text>
+  <text x="24" y="244" fill="#1f2328" font-size="12">DFS Animation</text>
+  <rect x="160" y="235" width="342" height="9" rx="4.5" fill="#eaeef2"/>
+  <rect x="160" y="235" width="1.9" height="9" rx="4.5" fill="#0969da"/>
+  <text x="576" y="244" text-anchor="end" fill="#1f2328" font-size="12">422</text>
+  <text x="576" y="275" text-anchor="end" fill="#59636e" font-size="11">2026-10-20</text>
   </g>
 </svg>
