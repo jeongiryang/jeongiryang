@@ -72,10 +72,12 @@
 
 ## 기여 기록과 코드 규모
 
+<p align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/generated/github-stats-dark.svg" />
-  <img src="assets/generated/github-stats-light.svg" alt="공개 GitHub 통계: 커밋, Pull Request, 이슈 등 GitHub 집계 기준" width="100%" />
+  <img src="assets/generated/github-stats-light.svg" alt="공개 GitHub 통계: 커밋, Pull Request, 이슈 등 GitHub 집계 기준" width="460" />
 </picture>
+</p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/generated/source-scale-dark.svg" />
   <img src="assets/generated/source-scale-light.svg" alt="선정한 공개 원본 프로젝트 7개의 현재 소스 코드 줄 수. 개인 작성량이 아닌 저장소 코드 규모입니다." width="100%" />
