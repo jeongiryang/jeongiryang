@@ -42,7 +42,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
         with:
           card: stats
-          options: username=jeongiryang&show_icons=true&hide_rank=true&hide_border=true&bg_color=f7faf7&title_color=153b31&text_color=38574c&icon_color=23785d&disable_animations=true
+          options: username=jeongiryang&show_icons=true&hide_rank=true&hide_border=true&theme=default&disable_animations=true
           path: assets/generated/github-stats-light.svg
           token: ${{ github.token }}
           core_version: "2.2.1"
@@ -52,7 +52,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
         with:
           card: stats
-          options: username=jeongiryang&show_icons=true&hide_rank=true&hide_border=true&bg_color=0f191b&title_color=b3ead1&text_color=c0d3c9&icon_color=86d9b4&disable_animations=true
+          options: username=jeongiryang&show_icons=true&hide_rank=true&hide_border=true&theme=tokyonight&disable_animations=true
           path: assets/generated/github-stats-dark.svg
           token: ${{ github.token }}
           core_version: "2.2.1"
