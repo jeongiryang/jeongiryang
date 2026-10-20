@@ -10,6 +10,27 @@
 
 WAVE는 [문서 PR #765](https://github.com/jeongiryang/wave-barrier-free-gyeongnam/pull/765)에서 `README.md`와 `docs/media/demo.gif`만 변경했다. 운영 중인 앱 소스·의존성·배포 설정은 그대로 두고 문서 커밋에 `[skip ci]`를 사용해 새 운영 배포를 실행하지 않았다. 전후 운영 커밋은 `f7b196e431d9fb108d9179bded9c09ab24191315`, GitHub production deployment ID는 `6806770136`으로 동일했다. 기존 보안 검사 실패를 해결하거나 통과한 것으로 표시하지 않는다.
 
+## 공개 아카이브 목록
+
+2026-10-20 요청에 따라 WAVE와 3학년 1학기까지의 학교 과제 13개를 공개 아카이브로 보관한다. README 정리는 반영했고 서비스·원본 소스·보고서는 유지한다.
+
+| 저장소 | 구분 |
+|---|---|
+| [WAVE](https://github.com/jeongiryang/wave-barrier-free-gyeongnam) | 별도 지정 서비스 |
+| [사각사각](https://github.com/jeongiryang/SoftwareEngineering_team15_project_-Smart-Edu-Platform) | 소프트웨어공학 |
+| [CWNU Community](https://github.com/jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community) | 데이터베이스 |
+| [CWNU Smart Portal](https://github.com/jeongiryang/todo-app-mini-project-20222017) | 학교 웹 과제 |
+| [OpenGL 3D House](https://github.com/jeongiryang/Computer-Graphics_project_Team1) | 컴퓨터그래픽스 |
+| [DFS Animation](https://github.com/jeongiryang/AlgorithmAnimation_DFS-AnimalScript_Assignment) | 알고리즘 |
+| [TCP / UDP](https://github.com/jeongiryang/Network-Programming_TCP_and_UDP-Analysis) | 네트워크프로그래밍 |
+| [너구리 게임](https://github.com/jeongiryang/Advanced_Data_Structures_Team6) | 고급자료구조 |
+| [Python 던전 게임](https://github.com/jeongiryang/OpenSource_1_team-project) | 오픈소스 |
+| [ToDo · 중고 마켓](https://github.com/jeongiryang/WebProgramming_team-project) | 웹프로그래밍 |
+| [Checksum Generator](https://github.com/jeongiryang/Network-Programming_Checksum-Generator) | 네트워크프로그래밍 |
+| [MariaDB SQL](https://github.com/jeongiryang/DatabaseLanguage_SQL_Assignment) | 데이터베이스 |
+| [Animal 1000 Points](https://github.com/jeongiryang/Algorithm_animal-animation_tool) | 알고리즘 |
+| [Hadoop / HDFS](https://github.com/jeongiryang/BigData_Kubernetes_Hadoop_HDFS_Assignment) | 빅데이터 |
+
 ## 먼저 보여 줄 5개
 
 | 프로젝트 | 상태 | 소개와 화면 | 본인 역할 |
