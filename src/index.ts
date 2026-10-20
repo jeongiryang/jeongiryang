@@ -1,49 +1,20 @@
-import { writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
-import { renderReadme } from "./renderer";
-import { profileConfig, profileProjects } from "./projects";
-import { generateProjectCardsSvg } from "./svg/generateProjectCards";
+import {writeFile,mkdir} from "node:fs/promises";
+import {resolve} from "node:path";
+import {renderReadme} from "./renderer";
+import {profileConfig,profileProjects} from "./projects";
+import {generateWorkshopHeaders} from "./svg/workshop";
+import {collectSourceMetrics,generateSourceScaleSvgs} from "./source-metrics";
+import {generateSite} from "./site";
 
-const ROOT_DIR = resolve(__dirname, "..");
-const TEMPLATE_PATH = resolve(ROOT_DIR, "README.template.md");
-const README_PATH = resolve(ROOT_DIR, "README.md");
-const PROJECT_CARDS_SVG_PATH = resolve(ROOT_DIR, "assets/generated/project-cards.svg");
-
-async function main(): Promise<void> {
-  const lastUpdated = formatKstTimestamp(new Date());
-
-  await generateProjectCardsSvg(profileProjects, PROJECT_CARDS_SVG_PATH);
-
-  const readme = await renderReadme({
-    templatePath: TEMPLATE_PATH,
-    lastUpdated,
-    profile: profileConfig,
-    projects: profileProjects
-  });
-
-  await writeFile(README_PATH, `${readme.trimEnd()}\n`, "utf8");
-
-  console.log(`Generated ${README_PATH}`);
-  console.log(`Generated ${PROJECT_CARDS_SVG_PATH}`);
+const root=resolve(__dirname,"..");
+async function main():Promise<void>{
+  await mkdir(resolve(root,"assets/generated"),{recursive:true});
+  if(process.argv.includes("--collect")){await collectSourceMetrics(root);return;}
+  await generateWorkshopHeaders(resolve(root,"assets/generated"));
+  await generateSourceScaleSvgs(root);
+  const readme=await renderReadme({templatePath:resolve(root,"README.template.md"),profile:profileConfig,projects:profileProjects});
+  await writeFile(resolve(root,"README.md"),`${readme.trimEnd()}\n`,"utf8");
+  await generateSite(root);
+  console.log("Generated README, workshop headers, source scale cards and HTML portfolio.");
 }
-
-function formatKstTimestamp(date: Date): string {
-  const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Seoul",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  });
-
-  const parts = Object.fromEntries(formatter.formatToParts(date).map((part) => [part.type, part.value]));
-
-  return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute} KST`;
-}
-
-main().catch((error: unknown) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+main().catch(error=>{console.error(error);process.exitCode=1;});

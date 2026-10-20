@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "clocVersion": "2.10",
+  "projects": [
+    {
+      "repo": "jeongiryang/wave-barrier-free-gyeongnam",
+      "name": "WAVE",
+      "head": "f7b196e431d9fb108d9179bded9c09ab24191315",
+      "code": 76754,
+      "comment": 5180,
+      "blank": 4880,
+      "files": 1251,
+      "languages": [
+        {
+          "name": "CSS",
+          "code": 6904,
+          "comment": 383,
+          "blank": 462,
+          "files": 92
+        },
+        {
+          "name": "JavaScript",
+          "code": 6930,
+          "comment": 998,
+          "blank": 513,
+          "files": 161
+        },
+        {
+          "name": "Python",
+          "code": 1898,
+          "comment": 194,
+          "blank": 229,
+          "files": 18
+        },
+        {
+          "name": "SQL",
+          "code": 427,
+          "comment": 92,
+          "blank": 39,
+          "files": 22
+        },
+        {
+          "name": "TypeScript",
+          "code": 60595,
+          "comment": 3513,
+          "blank": 3637,
+          "files": 958
+        }
+      ]
+    },
+    {
+      "repo": "jeongiryang/cbt-omr-tester",
+      "name": "CBT OMR",
+      "head": "753eaa4f2998baeda861d8b0b2c8d60d699d97c4",
+      "code": 1090,
+      "comment": 0,
+      "blank": 83,
+      "files": 1,
+      "languages": [
+        {
+          "name": "HTML",
+          "code": 1090,
+          "comment": 0,
+          "blank": 83,
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "jeongiryang/SoftwareEngineering_team15_project_-Smart-Edu-Platform",
+      "name": "Sagaksagak",
+      "head": "adf02fe48523f2abad368bc91b1e423a018a5cc6",
+      "code": 70668,
+      "comment": 249,
+      "blank": 7192,
+      "files": 193,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "code": 68924,
+          "comment": 50,
+          "blank": 6793,
+          "files": 171
+        },
+        {
+          "name": "Prisma Schema",
+          "code": 901,
+          "comment": 0,
+          "blank": 122,
+          "files": 1
+        },
+        {
+          "name": "SQL",
+          "code": 832,
+          "comment": 199,
+          "blank": 276,
+          "files": 20
+        },
+        {
+          "name": "TypeScript",
+          "code": 11,
+          "comment": 0,
+          "blank": 1,
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "jeongiryang/DatabaseLanguage_NodeJS_CWNU-Community",
+      "name": "CWNU Community",
+      "head": "cd24a9010b4bb287ea2b405da4364abc942b7166",
+      "code": 11379,
+      "comment": 41,
+      "blank": 1967,
+      "files": 39,
+      "languages": [
+        {
+          "name": "CSS",
+          "code": 4178,
+          "comment": 4,
+          "blank": 689,
+          "files": 1
+        },
+        {
+          "name": "HTML",
+          "code": 792,
+          "comment": 0,
+          "blank": 42,
+          "files": 6
+        },
+        {
+          "name": "JavaScript",
+          "code": 6239,
+          "comment": 4,
+          "blank": 1189,
+          "files": 24
+        },
+        {
+          "name": "Prisma Schema",
+          "code": 92,
+          "comment": 0,
+          "blank": 13,
+          "files": 1
+        },
+        {
+          "name": "SQL",
+          "code": 78,
+          "comment": 33,
+          "blank": 34,
+          "files": 7
+        }
+      ]
+    },
+    {
+      "repo": "jeongiryang/todo-app-mini-project-20222017",
+      "name": "Smart Portal",
+      "head": "1981f21d2421c59747ca5b0136aa840f9fedf303",
+      "code": 3704,
+      "comment": 2,
+      "blank": 61,
+      "files": 15,
+      "languages": [
+        {
+          "name": "CSS",
+          "code": 160,
+          "comment": 0,
+          "blank": 0,
+          "files": 2
+        },
+        {
+          "name": "HTML",
+          "code": 13,
+          "comment": 0,
+          "blank": 0,
+          "files": 1
+        },
+        {
+          "name": "JavaScript",
+          "code": 286,
+          "comment": 2,
+          "blank": 8,
+          "files": 5
+        },
+        {
+          "name": "JSX",
+          "code": 3245,
+          "comment": 0,
+          "blank": 53,
+          "files": 7
+        }
+      ]
+    },
+    {
+      "repo": "jeongiryang/Computer-Graphics_project_Team1",
+      "name": "OpenGL House",
+      "head": "cb2db536cdcf90f49606668a1c7396836be9def3",
+      "code": 1490,
+      "comment": 0,
+      "blank": 488,
+      "files": 3,
+      "languages": [
+        {
+          "name": "C/C++ Header",
+          "code": 48,
+          "comment": 0,
+          "blank": 14,
+          "files": 2
+        },
+        {
+          "name": "C++",
+          "code": 1442,
+          "comment": 0,
+          "blank": 474,
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "jeongiryang/AlgorithmAnimation_DFS-AnimalScript_Assignment",
+      "name": "DFS Animation",
+      "head": "03846bb17bfd32e9f05ad6fb1a2ca7f2275e3aba",
+      "code": 422,
+      "comment": 4,
+      "blank": 85,
+      "files": 1,
+      "languages": [
+        {
+          "name": "Python",
+          "code": 422,
+          "comment": 4,
+          "blank": 85,
+          "files": 1
+        }
+      ]
+    }
+  ],
+  "measuredAt": "2026-10-20T04:45:21.574Z"
+}

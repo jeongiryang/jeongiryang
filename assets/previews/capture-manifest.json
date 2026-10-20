@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "method": "Actual deployed browser viewport screenshots, resized and encoded to GIF with Pillow. No reused repository media or recreated UI.",
+  "captures": [
+    {
+      "file": "wave-live.gif",
+      "sourceUrl": "https://wave-barrier-free-gyeongnam.vercel.app/",
+      "capturedAt": "2026-10-20T04:50:58.258Z",
+      "scene": "홈 → 여행 설계·통영 선택 → 관광지 목록 → 상세·이용과 편의",
+      "scope": "실제 배포 사이트를 브라우저에서 열고 조작한 화면.",
+      "originalViewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "originalFrameCount": 31,
+      "gif": {
+        "size": [
+          800,
+          500
+        ],
+        "frames": 23,
+        "durationMs": 13670,
+        "bytes": 4645987
+      },
+      "sha256": "9e6907b9e86887c83317272b4ae93bbf9a1f14fd5427ace0f328bd6c4c4ba323"
+    },
+    {
+      "file": "cbt-omr-tester-live.gif",
+      "sourceUrl": "https://cbt-omr-tester.vercel.app/",
+      "capturedAt": "2026-10-20T04:52:48.712Z",
+      "scene": "시험 설정 → 10문항 OMR 마킹 → 정답 입력 → 80점·오답 2문항 채점",
+      "scope": "실제 배포 사이트를 브라우저에서 열고 조작한 화면.",
+      "originalViewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "originalFrameCount": 43,
+      "gif": {
+        "size": [
+          960,
+          600
+        ],
+        "frames": 29,
+        "durationMs": 12640,
+        "bytes": 1193757
+      },
+      "sha256": "30f9453d547d0fbc919c11408c4e454035a2f2c102051261ec515d7d7f65d277"
+    },
+    {
+      "file": "sagaksagak-live.gif",
+      "sourceUrl": "https://sagaksagak-smart-edu.vercel.app/",
+      "capturedAt": "2026-10-20T04:54:22.263Z",
+      "scene": "로그인 전 공개 랜딩 → 서비스 소개 섹션",
+      "scope": "공개 서비스 소개만 촬영. 인증 후 학습 기능의 실행 장면은 아님.",
+      "originalViewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "originalFrameCount": 43,
+      "gif": {
+        "size": [
+          960,
+          600
+        ],
+        "frames": 26,
+        "durationMs": 12660,
+        "bytes": 1455558
+      },
+      "sha256": "eea95c6d1cb2b47c2b5a4dece947c762ab9ee71a715dfb01edd824ae4dd0ebcc"
+    },
+    {
+      "file": "community-live.gif",
+      "sourceUrl": "https://cwnu-community.vercel.app/",
+      "capturedAt": "2026-10-20T04:52:15.789Z",
+      "scene": "공개 대시보드 → 게시판 목록 → 공지·댓글 읽기",
+      "scope": "실제 배포 사이트를 브라우저에서 열고 조작한 화면.",
+      "originalViewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "originalFrameCount": 43,
+      "gif": {
+        "size": [
+          960,
+          600
+        ],
+        "frames": 14,
+        "durationMs": 12880,
+        "bytes": 460388
+      },
+      "sha256": "f757f0e751fbc2df1618bb165170aa1bb99df7f3b65bbea2bf139484b868aa85"
+    },
+    {
+      "file": "smart-portal-live.gif",
+      "sourceUrl": "https://todo-app-mini-project-20222017.vercel.app/",
+      "capturedAt": "2026-10-20T04:53:01.872Z",
+      "scene": "메인 → 학점계산기 → 브라우저 내 예시 과목 입력·평점 계산",
+      "scope": "실제 배포 사이트를 브라우저에서 열고 조작한 화면.",
+      "originalViewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "originalFrameCount": 43,
+      "gif": {
+        "size": [
+          960,
+          600
+        ],
+        "frames": 43,
+        "durationMs": 12930,
+        "bytes": 253200
+      },
+      "sha256": "4607fdbbbab7c51ccafd560da712c707df3ac6d84ea93ce3b502fffafbd6b883"
+    }
+  ]
+}
