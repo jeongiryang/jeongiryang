@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">정이량&#39;s GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 35, Total Commits  (last year) : 1571, Total PRs: 723, Total Issues: 352, Contributed to (last year): 1</desc>
+        <desc id="descId">Total Stars Earned: 35, Total Commits  (last year) : 2112, Total PRs: 815, Total Issues: 413, Contributed to (last year): 4</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 61.456957027147546;
+        stroke-dashoffset: 61.03636110838797;
       }
     }
   
@@ -173,7 +173,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >1.6k</text>
+      >2.1k</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -188,7 +188,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs"
-      >723</text>
+      >815</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
@@ -203,7 +203,7 @@
         x="224.01"
         y="12.5"
         data-testid="issues"
-      >352</text>
+      >413</text>
     </g>
   </g><g transform="translate(0, 100)">
     <g class="stagger" style="animation-delay: 1050ms" transform="translate(25, 0)">
@@ -218,7 +218,7 @@
         x="224.01"
         y="12.5"
         data-testid="contribs"
-      >1</text>
+      >4</text>
     </g>
   </g>
     </svg>
